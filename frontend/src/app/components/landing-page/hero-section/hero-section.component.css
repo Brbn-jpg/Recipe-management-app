@@ -1,0 +1,257 @@
+@import "../../../shared/styles/button-styles.css";
+
+.hero-section {
+  background: rgb(23, 21, 21);
+  background: linear-gradient(
+    180deg,
+    rgba(23, 21, 21, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  overflow: hidden;
+  padding-top: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-3-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* article styling */
+article {
+  margin: 0 auto;
+  margin-bottom: 3.2rem;
+}
+
+.hero-left {
+  grid-column: 1 / span 2;
+  padding: 0 4.8rem;
+}
+
+.hero-right {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-right-img {
+  width: 75%;
+  object-fit: cover;
+}
+
+/* text styling */
+.cibaria-h4 {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  margin-top: 1.2rem;
+  margin-bottom: 2.4rem;
+  letter-spacing: 1.3px;
+  font-weight: 300;
+}
+
+.catch-phrase {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-transform: uppercase;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 1.1px;
+  line-height: 1.3;
+  margin-right: 48rem;
+  max-width: 100%;
+}
+
+.text-addition {
+  font-size: 1.8rem;
+  letter-spacing: 1.1px;
+  line-height: 1.4;
+  font-weight: 200;
+  margin-right: 24rem;
+  margin-bottom: 3.2rem;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* buttons styling */
+.hero-buttons {
+  display: flex;
+  gap: 2.4rem;
+  margin-bottom: 4.8rem;
+}
+
+/* Trust styling */
+
+.trust-header {
+  font-size: 4.4rem;
+  font-weight: 300;
+  letter-spacing: 1.05px;
+  margin-bottom: 1.8rem;
+}
+.trust-p {
+  margin-left: 0.8rem;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 1.1px;
+  color: #d6d6d6;
+}
+
+/* 1200px */
+@media (max-width: 75em) {
+  .hero-section {
+    padding-top: 15rem;
+  }
+  .catch-phrase {
+    font-size: 3.2rem;
+    margin-right: 24rem;
+    margin-bottom: 1.8rem;
+  }
+  .text-addition {
+    margin-right: 12rem;
+    margin-bottom: 2.4rem;
+  }
+  .hero-buttons {
+    margin-bottom: 1.5rem;
+  }
+  .trust {
+    margin-bottom: 2rem;
+  }
+}
+
+/* 930px */
+@media (max-width: 58em) {
+  .hero-section {
+    padding-top: 15rem;
+  }
+  .catch-phrase {
+    font-size: 3rem;
+    margin-right: 12rem;
+    margin-bottom: 1.5rem;
+  }
+  .text-addition {
+    margin-right: 6rem;
+    margin-bottom: 2rem;
+  }
+  .article {
+    margin-bottom: 2rem;
+  }
+  .trust {
+    margin-bottom: 2rem;
+  }
+}
+
+/* 800px */
+@media (max-width: 50em) {
+  .hero-left {
+    grid-column: 1 / span 3;
+  }
+  .text-addition {
+    margin-right: 0;
+  }
+  .catch-phrase {
+    margin-right: 0;
+  }
+  .hero-right-img {
+    display: none;
+  }
+}
+
+/* 560px */
+@media (max-width: 35em) {
+  .hero-left {
+    padding: 0 2.4rem;
+  }
+
+  .catch-phrase {
+    margin-top: 2.4rem;
+    font-size: 2.4rem;
+  }
+  .text-addition {
+    margin-right: 0;
+    font-size: 1.6rem;
+  }
+
+  .cibaria-h4 {
+    display: none;
+  }
+
+  .hero-buttons {
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-button {
+    font-size: 1.4rem;
+    padding: 1.6rem 3.2rem;
+  }
+  .more {
+    box-shadow: 0px 0px 180px 0px #ccbebe;
+  }
+
+  .grid-3-cols .trust {
+    margin: 0 auto;
+  }
+
+  .trust-header {
+    font-size: 3.2rem;
+  }
+  .trust-p {
+    font-size: 1.4rem;
+  }
+}
+
+/* 650px */
+@media (max-height: 40.625em) {
+  .hero-section {
+    padding-top: 15em;
+  }
+
+  .hero-buttons {
+    margin-bottom: 1.5em;
+  }
+
+  .text-addition {
+    margin-bottom: 2em;
+  }
+}
+
+/* 500px */
+@media (max-height: 31.25em) {
+  .hero-section {
+    padding-top: 15rem;
+  }
+
+  .catch-phrase {
+    font-size: 3rem;
+    margin-bottom: 1.5em;
+  }
+
+  .text-addition {
+    margin-bottom: 1.5em;
+  }
+
+  .hero-buttons {
+    margin-bottom: 1em;
+  }
+
+  .hero-button {
+    font-size: 1.2rem;
+    padding: 1.2rem 2.4rem;
+  }
+}
+
+/* < 460px */
+@media (max-width: 28.75em) {
+  .catch-phrase {
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem;
+  }
+}

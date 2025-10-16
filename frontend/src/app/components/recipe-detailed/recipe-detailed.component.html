@@ -1,0 +1,289 @@
+<main>
+  <article>
+    <app-toast-notification></app-toast-notification>
+    <div class="grid-2-cols">
+      <div class="recipe-details">
+        <div class="fav-edit">
+          @if (isLoggedIn){
+          <div class="favourite">
+            <button class="favourite-btn" (click)="toggleFavourite()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="favourite-icon icon"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
+                  fill="none"
+                  stroke="white"
+                  stroke-linejoin="round"
+                  stroke-width="32"
+                />
+              </svg>
+            </button>
+
+            <p class="favourite-text">
+              {{ "RECIPE_DETAILED.ADD_TO_FAVOURITE" | translate }}
+            </p>
+          </div>
+          @if(isOwner){
+          <div class="edit">
+            <a class="edit-btn" [routerLink]="['/update-recipe', recipeId]">
+              <img
+                src="images/icons/edit-icon.svg"
+                alt="Edit recipe"
+                class="edit-icon icon"
+              />
+            </a>
+            <p class="edit-text">
+              {{ "RECIPE_DETAILED.EDIT_RECIPE" | translate }}
+            </p>
+          </div>
+          <div class="delete">
+            <button class="delete-btn" (click)="delete()">
+              <img
+                src="images/icons/delete-icon.svg"
+                alt="Delete recipe"
+                class="delete-icon icon"
+              />
+            </button>
+            <p class="delete-text">
+              {{ "RECIPE_DETAILED.DELETE_RECIPE" | translate }}
+            </p>
+          </div>
+          } } @if (isLoggedIn){
+          <div class="rating">
+            <p class="rating-text">
+              {{ "RECIPE_DETAILED.RATE_THE_RECIPE" | translate }}
+            </p>
+            <div class="stars">
+              <button
+                class="star-btn"
+                (click)="onStarClick(1)"
+                (mouseenter)="onStarHover(1)"
+                id="star-1"
+                [disabled]="isRatingProcessing"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon icon"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
+                    fill="none"
+                    stroke="white"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                  />
+                </svg>
+              </button>
+
+              <button
+                class="star-btn"
+                (click)="onStarClick(2)"
+                (mouseenter)="onStarHover(2)"
+                id="star-2"
+                [disabled]="isRatingProcessing"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon icon"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
+                    fill="none"
+                    stroke="white"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                  />
+                </svg>
+              </button>
+
+              <button
+                class="star-btn"
+                (click)="onStarClick(3)"
+                (mouseenter)="onStarHover(3)"
+                id="star-3"
+                [disabled]="isRatingProcessing"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon icon"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
+                    fill="none"
+                    stroke="white"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                  />
+                </svg>
+              </button>
+
+              <button
+                class="star-btn"
+                (click)="onStarClick(4)"
+                (mouseenter)="onStarHover(4)"
+                id="star-4"
+                [disabled]="isRatingProcessing"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon icon"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
+                    fill="none"
+                    stroke="white"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                  />
+                </svg>
+              </button>
+
+              <button
+                class="star-btn"
+                (click)="onStarClick(5)"
+                (mouseenter)="onStarHover(5)"
+                id="star-5"
+                [disabled]="isRatingProcessing"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon icon"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
+                    fill="none"
+                    stroke="white"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          }
+        </div>
+        <div class="title">
+          <h1 class="recipe-title">{{ recipeDetails?.recipeName }}</h1>
+        </div>
+        <div class="empty-div"></div>
+      </div>
+      <div class="img-container">
+        <img
+          class="recipe-image"
+          [src]="recipeDetails?.images?.[0]?.imageUrl || 'images/Cibaria.png'"
+          alt="{{ recipeDetails?.recipeName }}"
+        />
+        <div class="circle"></div>
+      </div>
+    </div>
+    @if (showConfirmation){
+    <div class="modal-overlay" (click)="cancelDelete()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h3>{{ "RECIPE_DETAILED.DELETE_CONFIRMATION" | translate }}</h3>
+          <button type="button" class="close-button" (click)="cancelDelete()">
+            ×
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p>{{ "RECIPE_DETAILED.DELETE_WARNING" | translate }}</p>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="cibaria-btn cibaria-btn-secondary"
+            (click)="cancelDelete()"
+          >
+            {{ "RECIPE_DETAILED.NO" | translate }}
+          </button>
+          <button
+            type="button"
+            class="cibaria-btn cibaria-btn-danger"
+            (click)="confirmDelete()"
+          >
+            {{ "RECIPE_DETAILED.YES_DELETE" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+    <div class="ingredients-servings hidden">
+      <div class="prep-container">
+        <h2>
+          <span>{{ "RECIPE_DETAILED.PREPARE_TIME" | translate }}</span>
+          {{ recipeDetails?.prepareTime }}
+        </h2>
+        <h2>
+          <span>{{ "RECIPE_DETAILED.SERVINGS" | translate }}</span>
+          {{ recipeDetails?.servings }}
+        </h2>
+        <h2>
+          <span>{{ "RECIPE_DETAILED.CATEGORY" | translate }}</span>
+          {{
+            "RECIPE_FILTERS.CATEGORIES." + recipeDetails?.category | translate
+          }}
+        </h2>
+      </div>
+      <div class="ingredients">
+        <h2>{{ "RECIPE_DETAILED.INGREDIENTS" | translate }}</h2>
+        <ul>
+          @for (recipe of recipeDetails?.ingredients; track $index){
+          <li>
+            <input
+              type="checkbox"
+              [id]="'ingredient-' + $index"
+              (change)="check()"
+            /><label [for]="'ingredient-' + $index"
+              ><span class="ingredient-name">
+                {{ recipe.ingredientName }}
+                @if (recipe.isOptional) {
+                <span class="optional-badge"
+                  >({{ "ADD_RECIPE.OPTIONAL" | translate }})</span
+                >
+                }
+              </span>
+              <span class="quantity-unit">
+                {{ recipe.quantity }}
+                {{ translateUnit(recipe.unit) }}</span
+              ></label
+            >
+          </li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="steps">
+      @for (step of recipeDetails?.steps; track $index){
+      <div class="step">
+        <h2>
+          {{ "RECIPE_DETAILED.STEP" | translate : { number: $index + 1 } }}
+        </h2>
+        <p>{{ step.content }}</p>
+        <hr />
+      </div>
+      <div class="icon-container">
+        <img
+          class="icon"
+          src="images/icons/arrow-down-outline.svg"
+          alt="arrow down icon"
+        />
+      </div>
+      }
+
+      <div class="end">
+        <h2>{{ "RECIPE_DETAILED.ENJOY" | translate }}</h2>
+        <h2>ʕっ•ᴥ•ʔっ</h2>
+      </div>
+    </div>
+  </article>
+</main>

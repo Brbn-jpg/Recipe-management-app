@@ -1,0 +1,36 @@
+<div class="not-found-container">
+  <div class="not-found-content">
+    <h1 class="error-code">404</h1>
+    <h2 class="error-title">{{ "404.NOT_FOUND" | translate }}</h2>
+    <p class="error-message">
+      {{ "404.SORRY" | translate }}
+    </p>
+
+    <div class="error-suggestions">
+      <p>{{ "404.WHAT" | translate }}</p>
+      <ul>
+        <li>{{ "404.LI1" | translate }}</li>
+        <li>
+          <span>{{ "404.LI2" | translate }}</span>
+          <a routerLink="/" class="link">{{ "404.A1" | translate }}</a>
+        </li>
+        <li>
+          <span>{{ "404.LI3" | translate }}</span>
+          <a routerLink="/recipes" class="link">{{ "404.A2" | translate }}</a>
+        </li>
+        <li>
+          <a (click)="goBack()" class="link">{{ "404.LI4" | translate }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-primary" routerLink="/">
+        {{ "404.BTNHOME" | translate }}
+      </button>
+      <button class="btn btn-secondary" routerLink="/recipes">
+        {{ "404.BTNRECIPES" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

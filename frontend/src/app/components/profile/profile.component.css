@@ -1,0 +1,640 @@
+@import "../../shared/styles/button-styles.css";
+
+main {
+  background: rgb(23, 21, 21);
+  background: linear-gradient(
+    180deg,
+    rgba(23, 21, 21, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  color: #fff;
+  overflow: hidden;
+  min-height: 100vh;
+  padding-top: 12.2rem;
+  padding-bottom: 6.4rem;
+}
+
+/* background pic */
+.background {
+  height: 25vh;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 4.8rem;
+  cursor: pointer;
+}
+
+.background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  fill: #d4ae6c;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+/* Profile info */
+
+.profile-info {
+  margin: 17.6rem 0 4.8rem 4.8rem;
+  position: relative;
+  color: #fff;
+}
+
+.userbox-big {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.userbox {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.username {
+  font-size: 3.6rem;
+  font-weight: 600;
+}
+
+.user-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  max-width: 64rem;
+  color: #ccc;
+  margin-bottom: 4rem;
+  word-break: break-all;
+}
+
+.edit-profile {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.edit-profile-icon,
+.profile-settings-icon,
+.delete-profile-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.edit-profile-icon:hover,
+.profile-settings-icon:hover,
+.delete-profile-icon:hover {
+  transform: scale(1.15);
+}
+
+.edit-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4.8rem;
+  margin-right: 4.8rem;
+}
+
+/* Profile picture */
+
+.profile-pic {
+  position: absolute;
+  cursor: pointer;
+  top: calc(25vh + 12rem - 15rem);
+  left: 4.8rem;
+  height: 30rem;
+  z-index: 22;
+}
+
+.profile-picture {
+  border: 3px solid #000;
+  background: linear-gradient(
+    180deg,
+    rgba(23, 21, 21, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  height: 30rem;
+  width: 30rem;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.profile-pic-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-pic-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.edit-icon {
+  width: 3rem;
+  height: 3rem;
+  filter: invert(1);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.background:hover .background-image {
+  filter: blur(2px);
+}
+
+.background:hover .background-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.background:hover .edit-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.profile-pic:hover .profile-picture {
+  filter: blur(2px);
+}
+
+.profile-pic:hover .profile-pic-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.profile-pic:hover .edit-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Filters */
+
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  font-size: 3.2rem;
+  margin-bottom: 1.6rem;
+  font-weight: 200;
+}
+
+.filters {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
+  margin-bottom: 4.8rem;
+}
+
+.filter {
+  padding: 1.2rem 2.4rem;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+}
+
+option {
+  background-color: #000;
+  border: none;
+}
+
+select {
+  border: none;
+  font-size: 1.6rem;
+  letter-spacing: 1.02px;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 2.4rem;
+}
+
+.prepTime {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+  width: 12rem;
+}
+
+/* Chrome, Opera, Safari, Edge */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+h3 {
+  font-size: 3.6rem;
+  font-weight: 200;
+  letter-spacing: 1.02px;
+  margin: 0 4.8rem 4.8rem;
+}
+
+select.filter {
+  padding: 1.2rem 1.2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  letter-spacing: 1.02px;
+  appearance: none; /* Removes default arrow */
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  width: auto;
+  min-width: 20rem;
+  white-space: nowrap;
+}
+
+select.filter:hover,
+select.filter:focus,
+input:hover,
+input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+select.filter option {
+  background-color: #111;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+select.filter option:hover {
+  background-color: #222;
+}
+
+/* Arrow */
+select.filter {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1.6rem center;
+  background-size: 1.6rem;
+  padding-right: 4rem;
+}
+
+/* Recipe */
+
+.recipes {
+  margin: 2.4rem 4.8rem;
+}
+
+.grid-4-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4.8rem;
+  justify-items: center;
+}
+
+.pagination {
+  margin: 4.8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9.2rem;
+}
+
+.btn {
+  padding: 2.4rem 0;
+  width: 12rem;
+  border: none;
+  font-size: 1.8rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
+}
+
+.btn:hover {
+  order: none;
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.102),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #ccbebe;
+  transform: translateY(-2px);
+}
+
+.pages {
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 1.04px;
+}
+
+.search-input {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+  width: 24rem;
+}
+
+.no-recipes {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  font-size: 4.6rem;
+  margin: 12rem auto 64rem auto;
+}
+
+.settings-btn,
+.close {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+.close {
+  position: absolute;
+  top: 3.6rem;
+  left: 3.6rem;
+  z-index: 1000;
+}
+
+.settings {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in;
+
+  gap: 2.4rem;
+}
+
+.menu {
+  position: absolute;
+  gap: 3.6rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 900;
+  overflow: hidden;
+}
+
+.servings-input {
+  width: 12rem;
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.settings-icon {
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.active {
+  position: fixed;
+  visibility: visible;
+  z-index: 1000;
+  opacity: 1;
+  pointer-events: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-overlay {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  transform: translate(0%, 0%);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+hr {
+  margin: 0 4.8rem;
+}
+
+/* < 1352px */
+@media (max-width: 84.5em) {
+  .grid-4-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .filters {
+    display: flex;
+    justify-content: start;
+    margin: 0 4.8rem 2.4rem 4.8rem;
+  }
+}
+
+/* < 1280px */
+@media (max-width: 80em) {
+  .profile-pic {
+    height: 25rem;
+    width: 25rem;
+    top: calc(25vh + 12rem - 12.5rem);
+  }
+
+  .profile-picture {
+    height: 25rem;
+    width: 25rem;
+  }
+
+  .profile-info {
+    margin: 14rem 0 4.8rem 4.8rem;
+  }
+}
+
+/* < 1050px */
+@media (max-width: 66em) {
+  .grid-4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* < 800px */
+@media (max-width: 50em) {
+  .edit-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    margin-right: 0;
+  }
+}
+
+/* < 650px */
+@media (max-width: 40.625em) {
+  .settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-4-cols {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .username {
+    margin-bottom: 0;
+  }
+
+  .user-text {
+    font-size: 1.8rem;
+  }
+
+  .profile-pic {
+    height: 20rem;
+    width: 20rem;
+    top: calc(25vh + 12rem - 10rem);
+  }
+
+  .profile-picture {
+    height: 20rem;
+    width: 20rem;
+  }
+
+  .pagination {
+    gap: 2.4rem;
+    margin: 0 4.8rem;
+  }
+  .pages {
+    white-space: nowrap;
+  }
+  .no-recipes {
+    font-size: 3.6rem;
+  }
+}
+
+/* < 561px */
+@media (max-width: 35em) {
+  .profile-info {
+    margin: 12rem 2.4rem 4.8rem 2.4rem;
+  }
+
+  .profile-pic {
+    left: 2.4rem;
+  }
+
+  hr {
+    margin: 0 2.4rem;
+  }
+
+  .pagination {
+    margin: 0 2.4rem;
+  }
+
+  .recipes {
+    margin: 2.4rem 2.4rem;
+  }
+}
+
+/* < 460px */
+@media (max-width: 28.75em) {
+  .switch {
+    width: 16rem;
+    justify-self: center;
+  }
+
+  .profile-pic {
+    height: 18rem;
+    width: 18rem;
+    top: calc(25vh + 12rem - 9rem);
+  }
+
+  .profile-picture {
+    height: 18rem;
+    width: 18rem;
+  }
+}
+
+/* < 376px */
+@media (max-width: 23.5em) {
+  .profile-pic {
+    height: 16rem;
+    width: 16rem;
+    top: calc(25vh + 12rem - 8rem);
+  }
+
+  .profile-picture {
+    height: 16rem;
+    width: 16rem;
+  }
+}

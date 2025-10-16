@@ -1,0 +1,51 @@
+<a class="recipe-link" [routerLink]="['/recipes', recipe.id]">
+  <figure class="recipe">
+    <div class="image-wrapper">
+      <img
+        class="recipe-image"
+        [src]="getRecipeImage()"
+        [alt]="recipe.recipeName"
+      />
+    </div>
+    <div class="recipe-info">
+      <h2 class="recipe-name">{{ recipe.recipeName }}</h2>
+      @if (recipe.language && recipe.language.trim() !== '') {
+      <p class="recipe-language">{{ 'ADD_RECIPE.' + recipe.language.toUpperCase() | translate }}</p>
+      }
+    </div>
+    <div class="recipe-desc">
+      <div class="recipe-rating recipe-desc-inner">
+        <img
+          class="icon"
+          src="images/icons/star-outline.svg"
+          alt="small star icon"
+        /><span>{{ getAverageRating(recipe.ratings) }}</span>
+      </div>
+      <div class="recipe-difficulty recipe-desc-inner">
+        <img
+          class="icon"
+          src="images/icons/bar-chart-outline.svg"
+          alt="chart icon"
+        /><span>{{ getDifficulty(recipe.difficulty) }}</span>
+      </div>
+      <div class="recipe-servings recipe-desc-inner">
+        <img
+          class="icon"
+          src="images/icons/restaurant-outline.svg"
+          alt="fork and knife icon"
+        /><span>{{ recipe.servings }} {{ 'RECIPE_CARD.SERVINGS' | translate }}</span>
+      </div>
+      <div class="recipe-time recipe-desc-inner">
+        <img
+          class="icon"
+          src="images/icons/time-outline.svg"
+          alt="food icon"
+        /><span>{{ recipe.prepareTime }} {{ 'RECIPE_CARD.MINUTES' | translate }}</span>
+      </div>
+      <div class="recipe-time recipe-desc-inner">
+        <img class="icon" src="images/icons/bowl-food.svg" alt="" />
+        <span>{{ 'RECIPE_FILTERS.CATEGORIES.' + recipe.category | translate }}</span>
+      </div>
+    </div>
+  </figure>
+</a>

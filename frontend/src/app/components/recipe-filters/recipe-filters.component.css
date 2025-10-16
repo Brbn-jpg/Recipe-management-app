@@ -1,0 +1,571 @@
+@import "../../shared/styles/button-styles.css";
+
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  font-size: 3.2rem;
+  margin-bottom: 2.4rem;
+  font-weight: 200;
+}
+
+.filters {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 4.8rem 4.8rem 4.8rem;
+  gap: 2.4rem;
+  max-width: calc(100vw - 4.8rem);
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.filter {
+  padding: 1.2rem 2.4rem;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+}
+
+option {
+  background-color: #000;
+  border: none;
+}
+
+select {
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  letter-spacing: 1.02px;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1.2rem;
+}
+
+.search-input {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.prepTime {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+  width: 30%;
+}
+
+.servings-input {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+  width: 30%;
+}
+
+/* Chrome, Opera, Safari, Edge */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.settings-btn,
+.close {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+.close {
+  position: fixed;
+  top: 3.6rem;
+  right: 2.4rem;
+  z-index: 10001;
+}
+
+.menu {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.settings-icon {
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.6rem;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding-top: 2rem;
+}
+
+select.filter {
+  padding: 1.2rem 1.2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  letter-spacing: 1.02px;
+  appearance: none; /* Removes default arrow */
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  width: auto;
+  min-width: 20rem;
+  white-space: nowrap;
+}
+
+select.filter:hover,
+select.filter:focus,
+input:hover,
+input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+select.filter option {
+  background-color: #111;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+select.filter option:hover {
+  background-color: #222;
+}
+
+/* Arrow */
+select.filter {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1.6rem center;
+  background-size: 1.6rem;
+  padding-right: 4rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  grid-row: 1 / span 2;
+}
+
+.cibaria-btn.selectedTab {
+  background: linear-gradient(135deg, #d4ae6c 0%, #f4e4a1 100%) !important;
+  color: #000 !important;
+}
+
+.switch {
+  font-size: 2.4rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 0.8rem;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  width: 24rem;
+}
+
+.switch:hover {
+  background-color: #f7d79c;
+}
+
+.ingredients-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1.2rem;
+  max-height: 15rem;
+  overflow-y: auto;
+  border: 1px solid #333;
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  width: 100%;
+  min-width: 30rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem !important;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s ease;
+}
+
+.checkbox-label:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin: 0;
+  transform: scale(1.2);
+}
+
+.checkbox-label span {
+  color: #fff;
+  font-weight: 300;
+}
+
+/* < 1352px */
+@media (max-width: 84.5em) {
+  .filters {
+    display: flex;
+    justify-content: center;
+    margin: 0 4.8rem 2.4rem 4.8rem;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  label {
+    font-size: 2.4rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* < 650px */
+@media (max-width: 40.625em) {
+  .menu-content {
+    gap: 1rem;
+    max-width: 85%;
+    padding: 1rem;
+    max-height: 85vh;
+    padding-top: 1.5rem;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  .filter-wrapper {
+    width: 100%;
+    max-width: 28rem;
+  }
+
+  .inputs {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .inputs span {
+    display: none;
+  }
+
+  .search-input,
+  .prepTime,
+  .servings-input {
+    width: 100%;
+    max-width: none;
+    font-size: 1.5rem;
+    padding: 1rem 1.2rem;
+  }
+
+  select.filter {
+    width: 100%;
+    max-width: none;
+    font-size: 1.5rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .switch {
+    flex: 1;
+    min-width: auto;
+    width: auto;
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+  }
+
+  label {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+}
+
+/* Mobile height breakpoints for responsive filters */
+
+/* < 850px - height */
+@media (max-height: 53.125em) {
+  label {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .settings-label {
+    font-size: 2rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .filters {
+    gap: 1.5rem;
+  }
+
+  .inputs {
+    gap: 1.5rem;
+  }
+
+  .search-input,
+  .prepTime,
+  .servings-input {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  select.filter {
+    font-size: 1.4rem;
+    padding: 0.8rem 0.8rem;
+  }
+
+  .switch {
+    font-size: 1.8rem;
+  }
+}
+
+/* < 800px - height */
+@media (max-height: 50em) {
+  label {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .filters {
+    gap: 1.2rem;
+  }
+
+  .inputs {
+    gap: 1.2rem;
+  }
+
+  .search-input,
+  .prepTime,
+  .servings-input {
+    padding: 0.7rem 1rem;
+    font-size: 1.3rem;
+  }
+
+  select.filter {
+    font-size: 1.3rem;
+    padding: 0.7rem 0.7rem;
+  }
+}
+
+/* < 700px - height  */
+@media (max-height: 43.75em) {
+  label {
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .filters {
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .inputs {
+    gap: 0.8rem;
+  }
+
+  .search-input,
+  .prepTime,
+  .servings-input {
+    padding: 0.6rem 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  select.filter {
+    font-size: 1.2rem;
+    padding: 0.6rem 0.6rem;
+  }
+
+  .tabs {
+    gap: 1.2rem;
+  }
+
+  .switch {
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+/* < 600px - height*/
+@media (max-height: 37.5em) {
+  label {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .filters {
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .inputs {
+    gap: 0.6rem;
+  }
+
+  .search-input,
+  .prepTime,
+  .servings-input {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.1rem;
+  }
+
+  select.filter {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .tabs {
+    gap: 0.8rem;
+  }
+
+  .switch {
+    font-size: 1.3rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+/* < 561px */
+@media (max-width: 35em) {
+  .filters {
+    margin: 0 2.4rem 1rem 2.4rem;
+  }
+
+  .close {
+    right: 2.4rem;
+  }
+}
+
+/* < 500px - height */
+@media (max-height: 31.25em) {
+  label {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .filters {
+    gap: 0.5rem;
+  }
+
+  .inputs {
+    gap: 0.5rem;
+  }
+
+  .search-input,
+  .prepTime,
+  .servings-input {
+    padding: 0.4rem 0.5rem;
+    font-size: 1rem;
+  }
+
+  select.filter {
+    font-size: 1rem;
+    padding: 0.4rem 0.4rem;
+  }
+
+  .tabs {
+    gap: 0.6rem;
+  }
+
+  .switch {
+    font-size: 1.2rem;
+    padding: 0.2rem 0.8rem;
+  }
+
+  .ingredients-checkboxes {
+    max-height: 10rem;
+    padding: 0.6rem;
+    gap: 0.4rem;
+  }
+
+  .checkbox-label {
+    font-size: 1.1rem !important;
+    padding: 0.2rem;
+  }
+}
+
+/* 650px */
+@media (max-width: 40.625em) {
+  .ingredients-checkboxes {
+    grid-template-columns: 1fr;
+    min-width: 100%;
+    max-height: 12rem;
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .checkbox-label {
+    font-size: 1.3rem !important;
+    padding: 0.3rem;
+  }
+
+  .ingredients {
+    width: 100%;
+    max-width: 28rem;
+  }
+}

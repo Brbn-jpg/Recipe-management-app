@@ -1,0 +1,332 @@
+<div class="admin-panel">
+  <app-toast-notification></app-toast-notification>
+  <div class="admin-header">
+    <h1>{{ "ADMIN.TITLE" | translate }}</h1>
+    <nav class="admin-tabs">
+      <button
+        type="button"
+        class="cibaria-btn cibaria-btn-secondary cibaria-btn-sm tab-button"
+        [class.active]="activeTab === 'dashboard'"
+        (click)="setActiveTab('dashboard')"
+      >
+        {{ "ADMIN.DASHBOARD" | translate }}
+      </button>
+      <button
+        type="button"
+        class="cibaria-btn cibaria-btn-secondary cibaria-btn-sm tab-button"
+        [class.active]="activeTab === 'users'"
+        (click)="setActiveTab('users')"
+      >
+        {{ "ADMIN.USERS" | translate }}
+      </button>
+      <button
+        type="button"
+        class="cibaria-btn cibaria-btn-secondary cibaria-btn-sm tab-button"
+        [class.active]="activeTab === 'recipes'"
+        (click)="setActiveTab('recipes')"
+      >
+        {{ "ADMIN.RECIPES" | translate }}
+      </button>
+    </nav>
+  </div>
+
+  <div class="admin-content">
+    @if (loading) {
+    <div class="loading">{{ "ADMIN.LOADING" | translate }}</div>
+    }
+
+    <!-- Dashboard Tab -->
+    @if (activeTab === 'dashboard' && stats && !loading) {
+    <div class="dashboard">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>{{ "ADMIN.TOTAL_USERS" | translate }}</h3>
+          <div class="stat-number">{{ stats.totalUsers }}</div>
+          <div class="stat-breakdown">
+            <span
+              >{{ "ADMIN.ADMINS" | translate }}: {{ stats.adminUsers }}</span
+            >
+            <span
+              >{{ "ADMIN.REGULAR_USERS" | translate }}:
+              {{ stats.regularUsers }}</span
+            >
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <h3>{{ "ADMIN.TOTAL_RECIPES" | translate }}</h3>
+          <div class="stat-number">{{ stats.totalRecipes }}</div>
+          <div class="stat-breakdown">
+            <span
+              >{{ "ADMIN.PUBLIC" | translate }}: {{ stats.publicRecipes }}</span
+            >
+            <span
+              >{{ "ADMIN.PRIVATE" | translate }}:
+              {{ stats.privateRecipes }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+
+    <!-- Users Tab -->
+    @if (activeTab === 'users' && !loading) {
+    <div class="users-section">
+      <div class="section-header">
+        <h2>{{ "ADMIN.USER_MANAGEMENT" | translate }}</h2>
+      </div>
+
+      <div class="users-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>{{ "ADMIN.USERNAME" | translate }}</th>
+              <th>{{ "ADMIN.EMAIL" | translate }}</th>
+              <th>{{ "ADMIN.ROLE" | translate }}</th>
+              <th>{{ "ADMIN.ACTIONS" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of users; track user.id) {
+            <tr>
+              <td>{{ user.id }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <span class="role-badge" [class]="user.role.toLowerCase()">
+                  {{ user.role }}
+                </span>
+              </td>
+              <td>
+                <div class="actions">
+                  <button
+                    type="button"
+                    class="cibaria-btn cibaria-btn-secondary cibaria-btn-sm"
+                    (click)="openEditUserModal(user)"
+                  >
+                    {{ "ADMIN.EDIT" | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="cibaria-btn cibaria-btn-danger cibaria-btn-sm"
+                    (click)="deleteUser(user.id)"
+                  >
+                    {{ "ADMIN.DELETE" | translate }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+    }
+
+    <!-- Recipes Tab -->
+    @if (activeTab === 'recipes' && !loading) {
+    <div class="recipes-section">
+      <div class="section-header">
+        <h2>{{ "ADMIN.RECIPE_MANAGEMENT" | translate }}</h2>
+      </div>
+
+      <div class="recipes-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>{{ "ADMIN.RECIPE_NAME" | translate }}</th>
+              <th>{{ "ADMIN.CATEGORY" | translate }}</th>
+              <th>{{ "ADMIN.VISIBILITY" | translate }}</th>
+              <th>{{ "ADMIN.ACTIONS" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (recipe of recipes; track recipe.id) {
+            <tr>
+              <td>{{ recipe.id }}</td>
+              <td>{{ recipe.recipeName }}</td>
+              <td>{{ recipe.category }}</td>
+              <td>
+                <span
+                  class="visibility-badge"
+                  [class]="recipe.isPublic ? 'public' : 'private'"
+                >
+                  {{
+                    recipe.isPublic
+                      ? ("ADMIN.PUBLIC" | translate)
+                      : ("ADMIN.PRIVATE" | translate)
+                  }}
+                </span>
+              </td>
+              <td>
+                <div class="actions">
+                  <button
+                    type="button"
+                    class="cibaria-btn cibaria-btn-secondary cibaria-btn-sm"
+                    (click)="editRecipe(recipe.id)"
+                  >
+                    {{ "ADMIN.EDIT" | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="cibaria-btn cibaria-btn-danger cibaria-btn-sm"
+                    (click)="deleteRecipe(recipe.id)"
+                  >
+                    {{ "ADMIN.DELETE" | translate }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+    }
+  </div>
+
+  <!-- Edit User Modal -->
+  @if (showEditUserModal && selectedUser) {
+  <div class="modal-overlay" (click)="closeEditUserModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>{{ "ADMIN.EDIT_USER" | translate }}</h3>
+        <button
+          type="button"
+          class="cibaria-btn cibaria-btn-secondary cibaria-btn-xs close-button"
+          (click)="closeEditUserModal()"
+        >
+          ×
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="username">{{ "ADMIN.USERNAME" | translate }}:</label>
+          <input
+            id="username"
+            type="text"
+            [(ngModel)]="newUsername"
+            class="form-control"
+            placeholder="Enter username"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">{{ "ADMIN.EMAIL" | translate }}:</label>
+          <input
+            id="email"
+            type="email"
+            [(ngModel)]="newEmail"
+            class="form-control"
+            placeholder="Enter email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="role">{{ "ADMIN.ROLE" | translate }}:</label>
+          <select id="role" [(ngModel)]="newRole" class="form-control">
+            <option value="USER">USER</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="USER,ADMIN">USER,ADMIN</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="cibaria-btn cibaria-btn-secondary"
+          (click)="closeEditUserModal()"
+        >
+          {{ "ADMIN.CANCEL" | translate }}
+        </button>
+        <button
+          type="button"
+          class="cibaria-btn cibaria-btn-primary"
+          (click)="saveUser()"
+        >
+          {{ "ADMIN.SAVE" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+
+  <!-- Delete User Confirmation Modal -->
+  @if (showDeleteUserConfirmation) {
+  <div class="modal-overlay" (click)="cancelDeleteUser()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>{{ "ADMIN.DELETE_USER_CONFIRMATION" | translate }}</h3>
+        <button type="button" class="close-button" (click)="cancelDeleteUser()">
+          ×
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>{{ "ADMIN.DELETE_USER_WARNING" | translate }}</p>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="cibaria-btn cibaria-btn-secondary"
+          (click)="cancelDeleteUser()"
+        >
+          {{ "ADMIN.NO" | translate }}
+        </button>
+        <button
+          type="button"
+          class="cibaria-btn cibaria-btn-danger"
+          (click)="confirmDeleteUser()"
+        >
+          {{ "ADMIN.YES_DELETE" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+
+  <!-- Delete Recipe Confirmation Modal -->
+  @if (showDeleteRecipeConfirmation) {
+  <div class="modal-overlay" (click)="cancelDeleteRecipe()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>{{ "ADMIN.DELETE_RECIPE_CONFIRMATION" | translate }}</h3>
+        <button
+          type="button"
+          class="close-button"
+          (click)="cancelDeleteRecipe()"
+        >
+          ×
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>{{ "ADMIN.DELETE_RECIPE_WARNING" | translate }}</p>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="cibaria-btn cibaria-btn-secondary"
+          (click)="cancelDeleteRecipe()"
+        >
+          {{ "ADMIN.NO" | translate }}
+        </button>
+        <button
+          type="button"
+          class="cibaria-btn cibaria-btn-danger"
+          (click)="confirmDeleteRecipe()"
+        >
+          {{ "ADMIN.YES_DELETE" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+</div>

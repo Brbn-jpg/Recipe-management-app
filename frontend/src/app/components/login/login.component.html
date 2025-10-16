@@ -1,0 +1,121 @@
+<section class="login-register">
+  <app-toast-notification></app-toast-notification>
+  <main>
+    @if(login){
+    <div @showSection class="login">
+      <h2 class="catch-phrase">
+        {{ "LOGIN_REGISTER.LOGIN.CATCH_PHRASE" | translate }}
+      </h2>
+      <form class="inputs" (submit)="onLogin()">
+        <input
+          type="text"
+          [placeholder]="'LOGIN_REGISTER.LOGIN.EMAIL_PLACEHOLDER' | translate"
+          [formControl]="email"
+          [(ngModel)]="formEmail"
+        />
+        <input
+          type="password"
+          [placeholder]="
+            'LOGIN_REGISTER.LOGIN.PASSWORD_PLACEHOLDER' | translate
+          "
+          [formControl]="password"
+          [(ngModel)]="formPassword"
+        />
+        <div class="remember-me-section">
+          <span class="remember-me">{{
+            "LOGIN_REGISTER.LOGIN.REMEMBER_ME" | translate
+          }}</span>
+          <input
+            id="checkbox"
+            type="checkbox"
+            [(ngModel)]="rememberMe"
+            name="rememberMe"
+          />
+        </div>
+        <button type="button" class="cibaria-btn cibaria-btn-primary" (click)="onLogin()" [disabled]="isLoginLoading">
+          @if (!isLoginLoading) {
+            {{ "LOGIN_REGISTER.LOGIN.SUBMIT_BUTTON" | translate }}
+          } @else {
+            Loading...
+          }
+        </button>
+      </form>
+    </div>
+    }@else{
+    <div @showSection class="register">
+      <h2 class="catch-phrase">
+        {{ "LOGIN_REGISTER.REGISTER.CATCH_PHRASE" | translate }}
+      </h2>
+      <form class="inputs">
+        <div class="input-with-counter">
+          <input
+            type="text"
+            maxlength="16"
+            [placeholder]="
+              'LOGIN_REGISTER.REGISTER.USERNAME_PLACEHOLDER' | translate
+            "
+            [formControl]="username"
+            [(ngModel)]="formUsername"
+            #usernameInput
+          />
+          <small class="char-counter">{{ usernameInput.value?.length || 0 }}/16</small>
+        </div>
+        <input
+          type="email"
+          [placeholder]="
+            'LOGIN_REGISTER.REGISTER.EMAIL_PLACEHOLDER' | translate
+          "
+          [formControl]="email"
+          [(ngModel)]="formEmail"
+        />
+        <input
+          type="password"
+          [placeholder]="
+            'LOGIN_REGISTER.REGISTER.PASSWORD_PLACEHOLDER' | translate
+          "
+          (change)="comparePasswords()"
+          [formControl]="password"
+          [(ngModel)]="formPassword"
+        />
+        <input
+          type="password"
+          [placeholder]="
+            'LOGIN_REGISTER.REGISTER.CONFIRM_PASSWORD_PLACEHOLDER' | translate
+          "
+          (change)="comparePasswords()"
+          [formControl]="retypePassword"
+          [(ngModel)]="formRetypePassword"
+        />
+        @if (!isEqual){
+        <span class="wrong-pass">Passwords do not match</span>
+        }
+        <button type="button" class="cibaria-btn cibaria-btn-primary" (click)="onRegister()" [disabled]="isRegisterLoading">
+          @if (!isRegisterLoading) {
+            {{ "LOGIN_REGISTER.REGISTER.SUBMIT_BUTTON" | translate }}
+          } @else {
+            Loading...
+          }
+        </button>
+      </form>
+    </div>
+    } @if (login){
+    <div @showSection class="already-section already-login">
+      <h3 class="already">
+        {{ "LOGIN_REGISTER.SWITCH.NO_ACCOUNT" | translate }}
+      </h3>
+      <button class="cibaria-btn cibaria-btn-secondary" (click)="changeForm()">
+        {{ "LOGIN_REGISTER.SWITCH.REGISTER_BUTTON" | translate }}
+      </button>
+    </div>
+    } @else if (!login) {
+    <div @showSection class="already-section already-register">
+      <h3 class="already">
+        {{ "LOGIN_REGISTER.SWITCH.HAVE_ACCOUNT" | translate }}
+      </h3>
+      <button class="cibaria-btn cibaria-btn-secondary" (click)="changeForm()">
+        {{ "LOGIN_REGISTER.SWITCH.LOGIN_BUTTON" | translate }}
+      </button>
+    </div>
+    }
+  </main>
+</section>

@@ -1,0 +1,154 @@
+<main>
+  <app-toast-notification></app-toast-notification>
+  <div class="background" (click)="onEditBackgroundPicture($event)">
+    <div class="background-image-wrapper">
+      <img
+        [src]="backgroundImageUrl || 'images/icons/background.svg'"
+        crossorigin="anonymous"
+        alt=""
+        class="background-image"
+      />
+    </div>
+    <div class="background-overlay">
+      <img
+        src="images/icons/edit-icon.svg"
+        alt="Edit profile"
+        class="edit-icon"
+      />
+    </div>
+  </div>
+  <div class="profile-pic" (click)="onEditProfilePicture($event)">
+    <div class="profile-pic-wrapper">
+      <img
+        [src]="userPhotoUrl || 'images/icons/person-outline.svg'"
+        crossorigin="anonymous"
+        alt="Your profile picture"
+        class="profile-picture"
+      />
+    </div>
+    <div class="profile-pic-overlay">
+      <img
+        src="images/icons/edit-icon.svg"
+        alt="Edit profile"
+        class="edit-icon"
+      />
+    </div>
+  </div>
+  <div class="profile-info">
+    <div class="userbox-big">
+      <div class="userbox">
+        <h2 class="username">{{ username }}</h2>
+        <div class="settings">
+          @if(!editMode) {
+          <button class="edit-profile" (click)="editProfile($event)">
+            <img
+              src="images/icons/editprofile-icon.svg"
+              alt="edit profile"
+              class="edit-profile-icon"
+            />
+          </button>
+          } @if(!settings) {
+          <button class="edit-profile" (click)="editSettings($event)">
+            <img
+              src="images/icons/settings-icon.svg"
+              alt="settings"
+              class="profile-settings-icon"
+            />
+          </button>
+          } @if(!delete) {
+          <button class="edit-profile" (click)="deleteProfile($event)">
+            <img
+              src="images/icons/delete-icon.svg"
+              alt="delete your profile"
+              class="delete-profile-icon"
+            />
+          </button>
+          }
+        </div>
+      </div>
+    </div>
+
+    @if(description) {
+    <p class="user-text">
+      {{ description }}
+    </p>
+    }
+    <div class="edit-wrapper">
+      @if (editMode) {
+      <app-edit-profile></app-edit-profile>
+      } @if (settings){
+      <app-settings-profile></app-settings-profile>
+      } @if(delete){
+      <app-delete-profile></app-delete-profile>
+      }
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  @if (favouriteRecipes.length || userRecipes.length > 0) {
+  <app-recipe-filters
+    [isMobileFiltering]="isFiltering"
+    [showTabs]="true"
+    [activeTab]="activeTab"
+    [customCategories]="categoriesArray"
+    [customLanguages]="languagesArray"
+    [customIngredients]="ingredientsArray"
+    [useCustomData]="true"
+    [showIngredients]="true"
+    (filtersChanged)="onFiltersChanged()"
+    (tabChanged)="onTabChanged($event)"
+  ></app-recipe-filters>
+  <hr />
+  }
+
+  <!-- FAVOURITE RECIPES -->
+  @if(activeTab == 'favourites'){
+  <div class="recipes grid-4-cols">
+    @for (recipe of paginatedFavouriteRecipes; track $index) {
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    } @if (filteredFavouriteRecipes.length === 0 && favouriteRecipes.length > 0)
+    {
+    <p class="no-recipes">{{ "PROFILE.NO_RECIPES_FOUND" | translate }}</p>
+    } @if (favouriteRecipes.length === 0) {
+    <p class="no-recipes">{{ "PROFILE.NO_FAVOURITE_RECIPES" | translate }}</p>
+    }
+  </div>
+  }
+
+  <!-- USER RECIPES -->
+  @if (activeTab == 'userRecipes'){
+  <div class="recipes grid-4-cols">
+    @for (recipe of paginatedUserRecipes; track $index) {
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    } @if (filteredUserRecipes.length === 0 && userRecipes.length > 0) {
+    <p class="no-recipes">{{ "PROFILE.NO_RECIPES_FOUND" | translate }}</p>
+    } @if (userRecipes.length === 0) {
+    <p class="no-recipes">{{ "PROFILE.NO_USER_RECIPES" | translate }}</p>
+    }
+  </div>
+  }
+
+  <!-- PAGINATION & FOOTER -->
+  @if (filteredFavouriteRecipes.length > 0 || filteredUserRecipes.length > 0) {
+  <div class="pagination">
+    <button
+      class="cibaria-btn cibaria-btn-xs cibaria-btn-secondary"
+      [disabled]="currentPage === 1"
+      (click)="onPageChange(currentPage - 1)"
+    >
+      {{ "PROFILE.PREVIOUS" | translate }}
+    </button>
+    <span class="pages">{{
+      "PROFILE.PAGE_OF"
+        | translate : { currentPage: currentPage, totalPages: totalPages }
+    }}</span>
+    <button
+      class="cibaria-btn cibaria-btn-xs cibaria-btn-secondary"
+      [disabled]="currentPage === totalPages"
+      (click)="onPageChange(currentPage + 1)"
+    >
+      {{ "PROFILE.NEXT" | translate }}
+    </button>
+  </div>
+  }
+</main>

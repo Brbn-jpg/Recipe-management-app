@@ -1,0 +1,456 @@
+{
+  "ABOUT_US": {
+    "TITLE": "About us",
+    "TEXT": {
+      "WELCOME": "Welcome to <strong>Cibaria</strong>, your ultimate destination for discovering, sharing, and engaging with recipes from around the world. At Cibaria, we believe food brings people together, and our platform is designed to celebrate the joy of cooking and the magic of flavors.",
+      "EXPLORE": "Here, you can explore a treasure trove of recipes, crafted by passionate home cooks and seasoned chefs alike. Whether you’re looking for inspiration for a family dinner, experimenting with a new cuisine, or perfecting a cherished classic, Cibaria is your trusted companion in the kitchen.",
+      "COMMUNITY": "But we’re more than just a recipe repository. Cibaria thrives on community. Add your own recipes to showcase your culinary creativity, rate dishes to guide fellow food lovers, and share comments to exchange tips, tweaks, and praise. Every rating and comment contributes to making Cibaria a dynamic and collaborative space where everyone’s voice and taste matter.",
+      "JOIN": "Join us on this flavorful journey, and let’s cook, share, and savor together. Welcome to Cibaria – where every dish tells a story!"
+    }
+  },
+  "LOGIN_REGISTER": {
+    "LOGIN": {
+      "CATCH_PHRASE": "Log in to explore the world of Cibaria!",
+      "PASSWORD_PLACEHOLDER": "Password",
+      "EMAIL_PLACEHOLDER": "E-mail",
+      "REMEMBER_ME": "Remember me",
+      "SUBMIT_BUTTON": "Login"
+    },
+    "REGISTER": {
+      "CATCH_PHRASE": "Sign up and start your journey with Cibaria!",
+      "USERNAME_PLACEHOLDER": "Username",
+      "EMAIL_PLACEHOLDER": "Email",
+      "PASSWORD_PLACEHOLDER": "Password",
+      "CONFIRM_PASSWORD_PLACEHOLDER": "Confirm Password",
+      "SUBMIT_BUTTON": "Register"
+    },
+    "SWITCH": {
+      "NO_ACCOUNT": "Don't have an account?",
+      "HAVE_ACCOUNT": "Already have an account?",
+      "REGISTER_BUTTON": "Register",
+      "LOGIN_BUTTON": "Login"
+    }
+  },
+  "NAV": {
+    "HOME": "Home",
+    "ADD_RECIPE": "Add recipe",
+    "ABOUT": "About us",
+    "RECIPES": "Recipes",
+    "CONTACT": "Contact",
+    "LOGOUT": "Logout",
+    "PROFILE": "Profile",
+    "LOGIN": "Login",
+    "ADMIN_PANEL": "Admin Panel"
+  },
+  "MAINPAGE": {
+    "TITLE": "Turning ideas into unforgettable culinary experiences",
+    "SUBTITLE": " Transform your culinary visions into delectable creations with effortless finesse and a touch of sophistication. Let every idea come to life as a memorable dish, served with grace and enjoyed one bite at a time. ",
+    "BTNSTART": "Start now",
+    "BTNINFO": "More info",
+    "EXPERIENCE": {
+      "FOOD_FIELD": "in food field",
+      "RECIPES": "recipes",
+      "CLIENTS": "happy clients"
+    },
+    "10Y": "10y"
+  },
+  "SLIDER": {
+    "FEATURED": "As featured in"
+  },
+  "FEATURE": {
+    "TITLE1": "Flavors for every occasion!",
+    "SUBTITLE1": " Discover recipes that will delight your loved ones, no matter the occasion. From quick weeknight meals to special celebrations, bring creativity and joy to your kitchen with dishes that everyone will love. ",
+    "TITLE2": "Your time, your plan.",
+    "SUBTITLE2": " Take full control of your cooking schedule and adapt it to your daily life. Whether you prefer to plan meals weeks in advance or decide on the fly, you can organize your cooking effortlessly and always stay on top of your culinary goals. ",
+    "TITLE3": "Control the taste and quality.",
+    "SUBTITLE3": " By preparing meals yourself, you have full control over the ingredients and flavors that go into every dish. Enjoy the peace of mind that comes with knowing exactly what you're eating – fresh, healthy, and perfectly tailored to your taste. "
+  },
+  "TESTIMONIALS": {
+    "NAME": "Testimonials",
+    "TITLE": " See what others said about their journey to delicious & stress-free cooking! ",
+    "ANNA": "     This app has completely transformed the way I plan my meals. It's so easy to use, and now I always know what to cook! ",
+    "JULIA": "     I love how this app helps me stay organized. The recipes are amazing, and I save so much time during the week! ",
+    "MICHAEL": "     Cooking used to feel like a chore, but now it's fun and effortless. The planning feature is a game-changer for me. ",
+    "TOM": "     Finally, an app that makes cooking stress-free! I feel more confident in the kitchen and love experimenting with new recipes "
+  },
+  "CTA": {
+    "TITLE": "Let's keep in touch",
+    "SUBTITLE": " Sign up for our newsletter now and be the first to know about exciting new recipes! Get exclusive early access 3 days before anyone else and start planning your meals ahead of time with fresh inspiration delivered straight to your inbox. ",
+    "CTABTN": "Get in touch",
+    "NAME": "Enter your name",
+    "EMAIL": "Enter your e-mail",
+    "WHERE": "Where did you hear from us?",
+    "OPTIONS": {
+      "SOCIALMEDIA": "Socialmedia",
+      "ADS": "Ads",
+      "FRIENDS_FAMILY": "Friends and family",
+      "PODCAST": "Podcast",
+      "OTHER": "Other"
+    }
+  },
+  "FOOTER": {
+    "TITLE": "Discover, save, and rate recipes – everything you need to make cooking a joy every day!",
+    "COPY": "Cibaria ©2024 All rights reserved.",
+    "EXTRALINKS": {
+      "TITLE": "Extra links",
+      "LINK1": "Home",
+      "LINK2": "About us",
+      "LINK3": "Recipes",
+      "LINK4": "Contact"
+    },
+    "LEGAL": {
+      "TITLE": "Legal requirements",
+      "PRIVACY": "Privacy Policy",
+      "TERMS": "Terms of Service"
+    }
+  },
+  "CONTACT_US": {
+    "TITLE": "Contact Us",
+    "INTRO": "We'd love to hear from you! Whether you have a question, feedback, or need support, here's how you can get in touch with us:",
+    "GENERAL_INQUIRIES": {
+      "TITLE": "General Inquiries",
+      "TEXT": "Have a general question or want to learn more about Cibaria? Email us at: ",
+      "MAIL": "support@cibaria.edu"
+    },
+    "SUPPORT": {
+      "TITLE": "Support",
+      "TEXT": "Encountered an issue or need help with your account? Reach out to our support team:",
+      "MAIL": "support@cibaria.edu"
+    },
+    "PRIVACY_CONCERNS": {
+      "TITLE": "Privacy Concerns",
+      "TEXT": "For questions about how we handle your data or to exercise your privacy rights, contact our privacy team:",
+      "MAIL": "privacy@cibaria.edu"
+    },
+    "BUSINESS_PARTNERSHIPS": {
+      "TITLE": "Business Partnerships",
+      "TEXT": "Interested in partnering with us? Let’s collaborate! Contact us at: ",
+      "MAIL": "parents@cibaria.edu"
+    },
+    "SOCIAL_MEDIA": {
+      "TITLE": "Social Media",
+      "TEXT": "Stay connected and follow us for updates, tips, and inspiration:",
+      "LINKS": [
+        {
+          "NAME": "Facebook",
+          "URL": "https://www.facebook.com/cibaria"
+        },
+        {
+          "NAME": "Instagram",
+          "URL": "https://www.instagram.com/cibaria"
+        },
+        {
+          "NAME": "TikTok",
+          "URL": "https://www.tiktok.com/cibaria"
+        },
+        {
+          "NAME": "YouTube",
+          "URL": "https://www.youtube.com/cibaria"
+        },
+        {
+          "NAME": "X",
+          "URL": "https://www.x.com/cibaria"
+        }
+      ]
+    },
+    "MAILING_ADDRESS": {
+      "TITLE": "Mailing Address",
+      "TEXT": "If you prefer to reach out by mail, you can write to us at:",
+      "ADDRESS": ["Cibaria HQ", "123 Recipe Lane,", "Foodie City, FL 12345"]
+    },
+    "FOOTER": "We strive to respond to all inquiries within 2 business days. Thank you for being a part of our community!"
+  },
+  "PRIVACY_POLICY": {
+    "TITLE": "Privacy Policy",
+    "COLLECT": {
+      "TITLE": "What Information We Collect",
+      "TEXT": "We collect the following information:",
+      "ACCOUNT": "Account information: username, email address.",
+      "USAGE": "Usage data: saved recipe history, favorite lists, comments, and ratings.",
+      "DEVICE": "Device information: browser type, IP address."
+    },
+    "USE": {
+      "TITLE": "How We Use Your Information",
+      "TEXT": "We use your data to:",
+      "SERVICE": "Provide and improve our services, such as organizing recipes and tailoring features.",
+      "PERSONALIZE": "Personalize your experience, including recommending recipes based on your preferences.",
+      "COMMUNICATE": "Communicate about your account, including updates and notifications.",
+      "ANALYZE": "Analyze usage patterns on our platform to improve its functionality."
+    },
+    "SHARE": {
+      "TITLE": "Sharing Information",
+      "TEXT": "We do not sell your personal data. However, we may share information:",
+      "PROVIDERS": "With service providers supporting the operation of Cibaria, such as hosting and analytics.",
+      "LAW": "With law enforcement if required by law."
+    },
+    "SECURITY": {
+      "TITLE": "Data Security",
+      "TEXT": "We implement appropriate security measures to protect your data. However, as a passion-driven project, we cannot guarantee complete security."
+    },
+    "RIGHTS": {
+      "TITLE": "Your Rights",
+      "TEXT": "You have the right to:",
+      "ACCESS": "Access your personal data stored on our platform.",
+      "CORRECT": "Correct inaccurate or outdated information.",
+      "DELETE": "Request the deletion of your account along with saved data.",
+      "OPT_OUT": "Opt out of receiving promotional communications."
+    },
+    "CONTACT": {
+      "TITLE": "Contact Us",
+      "TEXT": "If you have any questions regarding privacy, contact us at:",
+      "MAIL": "support@cibaria.edu"
+    }
+  },
+  "TERMS_OF_SERVICE": {
+    "TITLE": "Terms of Service",
+    "ACCEPTANCE": {
+      "TITLE": "Acceptance of Terms",
+      "TEXT": "By using the Cibaria platform, you agree to these Terms of Service. If you do not agree, you must refrain from accessing or using our services."
+    },
+    "ELIGIBILITY": {
+      "TITLE": "Eligibility",
+      "TEXT": "You must be at least 16 years old to use Cibaria. By registering an account, you confirm that you meet this requirement."
+    },
+    "ACCOUNT": {
+      "TITLE": "Account Registration and Security",
+      "STEPS": {
+        "CONFIDENTIALITY": "You are responsible for maintaining the confidentiality of your account credentials.",
+        "NO_SHARING": "You agree not to share your account with others or use another user’s account without permission.",
+        "NOTIFY": "Notify us immediately at support@cibaria.edu if you suspect unauthorized access to your account."
+      }
+    },
+    "USER_CONTENT": {
+      "TITLE": "User-Generated Content",
+      "TEXT": "Cibaria allows users to create, save, and share recipe-related content. By submitting content, you agree to the following:",
+      "STEPS": {
+        "OWNERSHIP": "You own or have permission to use any content you upload, including text, images, and other materials.",
+        "LICENSE": "You grant Cibaria a non-exclusive, royalty-free, worldwide license to display, modify, and distribute your content within the platform for purposes related to its operation.",
+        "RESTRICTIONS": "You will not upload content that is offensive, inappropriate, or violates any laws or third-party rights."
+      }
+    },
+    "PROHIBITED": {
+      "TITLE": "Prohibited Activities",
+      "TEXT": "You agree not to:",
+      "STEPS": {
+        "ILLEGAL_USE": "Use the platform for illegal purposes or activities.",
+        "INTERFERENCE": "Interfere with the functioning of the platform, such as by introducing malware or engaging in data scraping.",
+        "HARASSMENT": "Harass, abuse, or harm other users."
+      }
+    },
+    "INTELLECTUAL_PROPERTY": {
+      "TITLE": "Intellectual Property",
+      "TEXT": "All platform features, design elements, and content, except user-generated content, are the property of Cibaria. You agree not to copy, distribute, or use our intellectual property without prior written permission."
+    },
+    "TERMINATION": {
+      "TITLE": "Termination of Use",
+      "TEXT": "We reserve the right to suspend or terminate your account if you violate these Terms of Service or engage in activities that harm Cibaria or its users."
+    },
+    "LIABILITY": {
+      "TITLE": "Limitation of Liability",
+      "TEXT": "Cibaria is provided \"as is.\" We are not responsible for:",
+      "STEPS": {
+        "ERRORS": "Errors, interruptions, or data loss related to the platform.",
+        "SAFETY": "Any health or safety issues arising from recipes posted by users. Always verify the safety and accuracy of recipes before use."
+      }
+    },
+    "CHANGES": {
+      "TITLE": "Changes to Terms",
+      "TEXT": "We may update these Terms of Service at any time. Significant changes will be communicated to you via the platform or email. Continued use of the platform constitutes acceptance of the updated terms."
+    },
+    "GOVERNING_LAW": {
+      "TITLE": "Governing Law",
+      "TEXT": "These Terms of Service are governed by the laws of Poland. Any disputes will be resolved in the courts of Poland."
+    },
+    "CONTACT": {
+      "TITLE": "Contact Us",
+      "TEXT": "If you have questions or concerns about these Terms of Service, please reach out to us at support@cibaria.edu."
+    }
+  },
+  "RECIPE_FILTERS": {
+    "FAVOURITES": "Favourites",
+    "MY_RECIPES": "My recipes",
+    "FILTERS": "Filters",
+    "SEARCH": "Search",
+    "SEARCH_PLACEHOLDER": "Search for recipes",
+    "PREPARE_TIME": "Prepare time",
+    "FROM": "from",
+    "TO": "to",
+    "SERVINGS": "Servings",
+    "CATEGORY": "Category",
+    "CHOOSE_CATEGORY": "Choose category",
+    "DIFFICULTY": "Difficulty",
+    "CHOOSE_DIFFICULTY": "Choose difficulty",
+    "EASY": "Easy",
+    "MEDIUM": "Medium",
+    "HARD": "Hard",
+    "LANGUAGE": "Language",
+    "CHOOSE_LANGUAGE": "Choose language",
+    "INGREDIENTS": "Ingredients",
+    "CATEGORIES": {
+      "BREAKFAST": "Breakfast",
+      "LUNCH": "Lunch",
+      "DINNER": "Dinner",
+      "DESSERT": "Dessert",
+      "SNACK": "Snack",
+      "DRINK": "Drink",
+      "SALAD": "Salad",
+      "SOUP": "Soup",
+      "śniadanie": "Breakfast",
+      "obiad": "Lunch",
+      "kolacja": "Dinner",
+      "deser": "Dessert",
+      "przekąska": "Snack",
+      "napój": "Drink",
+      "sałatka": "Salad",
+      "zupa": "Soup"
+    }
+  },
+  "PROFILE": {
+    "NO_RECIPES_FOUND": "No recipes found matching your filters",
+    "NO_FAVOURITE_RECIPES": "You have no favourite recipes yet",
+    "NO_USER_RECIPES": "You have no recipes yet",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "PAGE_OF": "page {{currentPage}} of {{totalPages}}"
+  },
+  "EDIT_PROFILE": {
+    "USERNAME": "Username",
+    "USERNAME_PLACEHOLDER": "Enter new username",
+    "DESCRIPTION": "Description",
+    "DESCRIPTION_PLACEHOLDER": "Enter new description",
+    "SAVE": "Save",
+    "CANCEL": "Cancel"
+  },
+  "SETTINGS_PROFILE": {
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Enter new email",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "PASSWORD": "Password",
+    "CURRENT_PASSWORD_PLACEHOLDER": "Current password to confirm",
+    "NEW_PASSWORD_PLACEHOLDER": "Enter new password",
+    "SAVE": "Save",
+    "CANCEL": "Cancel"
+  },
+  "ADD_RECIPE": {
+    "TITLE": "Add a new recipe",
+    "RECIPE_TITLE": "Recipe title",
+    "RECIPE_TITLE_PLACEHOLDER": "Shakshuka",
+    "CATEGORY": "Category",
+    "CATEGORY_PLACEHOLDER": "Breakfast",
+    "DIFFICULTY": "Difficulty",
+    "CHOOSE_DIFFICULTY": "Choose a difficulty",
+    "EASY": "easy",
+    "MEDIUM": "medium",
+    "HARD": "hard",
+    "SERVINGS": "Servings",
+    "SERVINGS_PLACEHOLDER": "2",
+    "PREPARE_TIME": "Prepare time",
+    "PREPARE_TIME_PLACEHOLDER": "in minutes!",
+    "LANGUAGE": "Language",
+    "ENGLISH": "English",
+    "POLISH": "Polish",
+    "VISIBILITY": "Visibility",
+    "PRIVATE": "private",
+    "PUBLIC": "public",
+    "INGREDIENTS": "Ingredients",
+    "INGREDIENT_PLACEHOLDER": "Tomato",
+    "QUANTITY_PLACEHOLDER": "2",
+    "CHOOSE_UNIT": "Choose unit",
+    "REMOVE": "Remove",
+    "ADD_INGREDIENT": "Add ingredient",
+    "OPTIONAL": "optional",
+    "STEPS": "Steps",
+    "STEP_PLACEHOLDER": "Cut the tomatoes into small pieces",
+    "ADD_STEP": "Add step",
+    "STEP_NUMBER": "Step {{number}}",
+    "ADD_IMAGE": "Add image",
+    "CLICK_OR_DRAG": "📁 Click or drag an image here",
+    "ADD_RECIPE_BUTTON": "Add recipe",
+    "UNITS": {
+      "TSP": "tsp",
+      "TBSP": "tbsp",
+      "PCS": "pcs",
+      "G": "g",
+      "KG": "kg",
+      "ML": "ml",
+      "L": "L"
+    }
+  },
+  "RECIPE_DETAILED": {
+    "ADD_TO_FAVOURITE": "Add to favourite",
+    "EDIT_RECIPE": "Edit recipe",
+    "DELETE_RECIPE": "Delete recipe",
+    "RATE_THE_RECIPE": "Rate the recipe",
+    "DELETE_CONFIRMATION": "Delete Recipe",
+    "DELETE_WARNING": "Are you sure you want to delete this recipe? This action cannot be undone.",
+    "YES_DELETE": "Yes, delete",
+    "NO": "No",
+    "PREPARE_TIME": "Prepare time:",
+    "SERVINGS": "Servings:",
+    "CATEGORY": "Category:",
+    "INGREDIENTS": "Ingredients:",
+    "STEP": "Step {{number}}",
+    "ENJOY": "Enjoy"
+  },
+  "RECIPE_CARD": {
+    "SERVINGS": "servings",
+    "MINUTES": "minutes"
+  },
+  "EDIT_RECIPE": {
+    "TITLE": "Update recipe",
+    "INGREDIENT_EXISTS": "This ingredient already exists!",
+    "FILL_ALL_FIELDS": "Please fill all the fields!",
+    "CURRENT_IMAGE": "Current image",
+    "NEW_IMAGE_SELECTED": "New image selected",
+    "UPDATE_RECIPE_BUTTON": "Update recipe"
+  },
+  "ADMIN": {
+    "TITLE": "Admin Panel",
+    "LOADING": "Loading...",
+    "DASHBOARD": "Dashboard",
+    "USERS": "Users",
+    "RECIPES": "Recipes",
+    "USER_MANAGEMENT": "User Management",
+    "RECIPE_MANAGEMENT": "Recipe Management",
+    "TOTAL_USERS": "Total Users",
+    "TOTAL_RECIPES": "Total Recipes",
+    "ADMINS": "Admins",
+    "REGULAR_USERS": "Regular Users",
+    "PUBLIC": "Public",
+    "PRIVATE": "Private",
+    "USERNAME": "Username",
+    "EMAIL": "Email",
+    "ROLE": "Role",
+    "ACTIONS": "Actions",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "RECIPE_NAME": "Recipe Name",
+    "CATEGORY": "Category",
+    "VISIBILITY": "Visibility",
+    "MAKE_PUBLIC": "Make Public",
+    "MAKE_PRIVATE": "Make Private",
+    "EDIT_USER_ROLE": "Edit User Role",
+    "EDIT_USER": "Edit User",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "DELETE_USER_CONFIRMATION": "Delete User",
+    "DELETE_USER_WARNING": "Are you sure you want to delete this user? This action cannot be undone.",
+    "DELETE_RECIPE_CONFIRMATION": "Delete Recipe",
+    "DELETE_RECIPE_WARNING": "Are you sure you want to delete this recipe? This action cannot be undone.",
+    "YES_DELETE": "Yes, Delete",
+    "NO": "No"
+  },
+  "404": {
+    "NOT_FOUND": "Page not found",
+    "SORRY": "Sorry, but the page you are looking for does not exist or has been moved.",
+    "WHAT": "What you can do:",
+    "LI1": "Check if the URL address is correct",
+    "LI2": "Return to ",
+    "A1": "the main page",
+    "LI3": "Go to ",
+    "A2": "recipes",
+    "LI4": "Go back to the previous page",
+    "BTNHOME": "Home page",
+    "BTNRECIPES": "Recipes"
+  }
+}

@@ -1,0 +1,51 @@
+<main class="hero-section">
+  <article>
+    <div class="grid-3-cols">
+      <div class="hero-left">
+        <h4 class="cibaria-h4">cibaria</h4>
+        <p class="catch-phrase">
+          {{ "MAINPAGE.TITLE" | translate }}
+        </p>
+        <p class="text-addition">
+          {{ "MAINPAGE.SUBTITLE" | translate }}
+        </p>
+
+        <div class="hero-buttons">
+          <button class="cibaria-btn cibaria-btn-primary">{{
+            "MAINPAGE.BTNSTART" | translate
+          }}</button>
+          <button class="cibaria-btn cibaria-btn-secondary">{{
+            "MAINPAGE.BTNINFO" | translate
+          }}</button>
+        </div>
+        <div class="grid-3-cols trust">
+          <div>
+            <h3 class="trust-header">{{ "MAINPAGE.10Y" | translate }}</h3>
+            <p class="trust-p">
+              {{ "MAINPAGE.EXPERIENCE.FOOD_FIELD" | translate }}
+            </p>
+          </div>
+          <div>
+            <h3 class="trust-header">100+</h3>
+            <p class="trust-p">
+              {{ "MAINPAGE.EXPERIENCE.RECIPES" | translate }}
+            </p>
+          </div>
+          <div>
+            <h3 class="trust-header">100k+</h3>
+            <p class="trust-p">
+              {{ "MAINPAGE.EXPERIENCE.CLIENTS" | translate }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img
+          src="images/hero-img.png"
+          alt="{{ 'MAINPAGE.TITLE' | translate }}"
+          class="hero-right-img"
+        />
+      </div>
+    </div>
+  </article>
+</main>

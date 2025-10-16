@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red !important; Uncomment for debugging */
+}
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+
+/* Prevent iOS Safari zoom on input focus */
+input,
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+.overflow-h {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}

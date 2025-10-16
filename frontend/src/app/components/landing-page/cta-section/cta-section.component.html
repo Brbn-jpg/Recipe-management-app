@@ -1,0 +1,33 @@
+<section class="cta-section hidden">
+  <div class="cta-text">
+    <h4 class="cibaria-header">Cibaria</h4>
+    <p class="cibaria-subheader">{{ "CTA.TITLE" | translate }}</p>
+    <p class="cibaria-text">
+      {{ "CTA.SUBTITLE" | translate }}
+    </p>
+    <img
+      src="images/Cibaria.png"
+      alt="{{ 'FOOTER.TITLE' | translate }}"
+      class="cta-img"
+    />
+  </div>
+  <div class="cta-inputs">
+    <label for="name">{{ "CTA.NAME" | translate }}</label>
+    <input id="name" type="text" placeholder="{{ 'CTA.NAME' | translate }}" />
+    <label for="email">{{ "CTA.EMAIL" | translate }}</label>
+    <input id="email" type="text" placeholder="{{ 'CTA.EMAIL' | translate }}" />
+    <label for="source">{{ "CTA.WHERE" | translate }}</label>
+    <select id="source">
+      <option value="Socialmedia">
+        {{ "CTA.OPTIONS.SOCIALMEDIA" | translate }}
+      </option>
+      <option value="Ads">{{ "CTA.OPTIONS.ADS" | translate }}</option>
+      <option value="Friends">
+        {{ "CTA.OPTIONS.FRIENDS_FAMILY" | translate }}
+      </option>
+      <option value="Podcast">{{ "CTA.OPTIONS.PODCAST" | translate }}</option>
+      <option value="Other">{{ "CTA.OPTIONS.OTHER" | translate }}</option>
+    </select>
+    <button class="cibaria-btn cibaria-btn-primary">{{ "CTA.CTABTN" | translate }}</button>
+  </div>
+</section>

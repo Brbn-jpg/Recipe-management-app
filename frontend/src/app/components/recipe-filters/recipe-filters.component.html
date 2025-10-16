@@ -1,0 +1,191 @@
+<div class="filters">
+  @if (showTabs) {
+  <div class="tabs">
+    <button
+      type="button"
+      (click)="onTabChange('favourites')"
+      [class.selectedTab]="activeTab === 'favourites'"
+      class="cibaria-btn cibaria-btn-secondary cibaria-btn-lg"
+    >
+      {{ "RECIPE_FILTERS.FAVOURITES" | translate }}
+    </button>
+    <button
+      type="button"
+      (click)="onTabChange('userRecipes')"
+      [class.selectedTab]="activeTab === 'userRecipes'"
+      class="cibaria-btn cibaria-btn-secondary cibaria-btn-lg"
+    >
+      {{ "RECIPE_FILTERS.MY_RECIPES" | translate }}
+    </button>
+  </div>
+  } @if (isMobileFiltering) { @if (isMenuOpen) {
+  <div class="close-btn">
+    <button type="button" class="close" (click)="closeMenu()">
+      <img
+        src="images/mobile-menu/menu-close.svg"
+        alt="close menu"
+        class="settings-icon"
+      />
+    </button>
+  </div>
+  }
+  <div class="settings">
+    <div class="filter-wrapper">
+      <label class="settings-label">{{
+        "RECIPE_FILTERS.FILTERS" | translate
+      }}</label>
+      <button type="button" class="settings-btn" (click)="openMenu()">
+        <img
+          src="images/mobile-menu/menu-open.svg"
+          alt="open menu"
+          class="settings-icon"
+        />
+      </button>
+    </div>
+    <div class="menu" [class.active]="isMenuOpen" (click)="closeMenu()">
+      <div class="menu-content" (click)="$event.stopPropagation()">
+        <ng-container *ngTemplateOutlet="filtersContent"></ng-container>
+      </div>
+    </div>
+  </div>
+  } @else {
+  <ng-container *ngTemplateOutlet="filtersContent"></ng-container>
+  }
+</div>
+
+<ng-template #filtersContent>
+  <div class="search filter-wrapper">
+    <label for="search">{{ "RECIPE_FILTERS.SEARCH" | translate }}</label>
+    <input
+      type="text"
+      id="search"
+      class="search-input"
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+      placeholder="{{ 'RECIPE_FILTERS.SEARCH_PLACEHOLDER' | translate }}"
+    />
+  </div>
+  <div class="prepare-time filter-wrapper">
+    <label for="prepare-time">{{
+      "RECIPE_FILTERS.PREPARE_TIME" | translate
+    }}</label>
+    <div class="inputs">
+      <input
+        type="number"
+        class="prepTime from"
+        [(ngModel)]="prepTimeFrom"
+        (change)="onFilterChange()"
+        placeholder="{{ 'RECIPE_FILTERS.FROM' | translate }}"
+        min="0"
+      />
+      <span> &mdash; </span>
+      <input
+        type="number"
+        class="prepTime to"
+        [(ngModel)]="prepTimeTo"
+        (change)="onFilterChange()"
+        placeholder="{{ 'RECIPE_FILTERS.TO' | translate }}"
+        min="0"
+      />
+    </div>
+  </div>
+  <div class="servings filter-wrapper">
+    <label for="servings">{{ "RECIPE_FILTERS.SERVINGS" | translate }}</label>
+    <div class="inputs">
+      <input
+        id="servings-from"
+        type="number"
+        [(ngModel)]="servingsFrom"
+        (input)="onFilterChange()"
+        class="servings-input from"
+        placeholder="{{ 'RECIPE_FILTERS.FROM' | translate }}"
+        min="1"
+      />
+      <span> &mdash; </span>
+      <input
+        id="servings-to"
+        type="number"
+        [(ngModel)]="servingsTo"
+        (input)="onFilterChange()"
+        class="servings-input to"
+        placeholder="{{ 'RECIPE_FILTERS.TO' | translate }}"
+        min="1"
+      />
+    </div>
+  </div>
+  <div class="category filter-wrapper">
+    <label for="category">{{ "RECIPE_FILTERS.CATEGORY" | translate }}</label>
+    <select
+      name="category"
+      id="category"
+      class="filter"
+      [(ngModel)]="selectedCategory"
+      (change)="onFilterChange()"
+    >
+      <option value="">
+        {{ "RECIPE_FILTERS.CHOOSE_CATEGORY" | translate }}
+      </option>
+      @for (category of categoriesArray; track category.key) {
+      <option [value]="category.value">
+        {{ "RECIPE_FILTERS.CATEGORIES." + category.key | translate }}
+      </option>
+      }
+    </select>
+  </div>
+  <div class="difficulty filter-wrapper">
+    <label for="difficulty">{{
+      "RECIPE_FILTERS.DIFFICULTY" | translate
+    }}</label>
+    <select
+      name="difficulty"
+      id="difficulty"
+      class="filter"
+      [(ngModel)]="selectedDifficulty"
+      (change)="onFilterChange()"
+    >
+      <option selected value="">
+        {{ "RECIPE_FILTERS.CHOOSE_DIFFICULTY" | translate }}
+      </option>
+      <option value="1">{{ "RECIPE_FILTERS.EASY" | translate }}</option>
+      <option value="2">{{ "RECIPE_FILTERS.MEDIUM" | translate }}</option>
+      <option value="3">{{ "RECIPE_FILTERS.HARD" | translate }}</option>
+    </select>
+  </div>
+  <div class="language filter-wrapper">
+    <label for="Language">{{ "RECIPE_FILTERS.LANGUAGE" | translate }}</label>
+    <select
+      name="language"
+      id="language"
+      class="filter"
+      [(ngModel)]="selectedLanguage"
+      (change)="onLanguageChange()"
+    >
+      <option value="">
+        {{ "RECIPE_FILTERS.CHOOSE_LANGUAGE" | translate }}
+      </option>
+      @for (language of languagesArray; track language.languageName) {
+      <option [value]="language.languageName">
+        {{ language.languageName }}
+      </option>
+      }
+    </select>
+  </div>
+  @if (showIngredients && ingredientsArray.length > 0) {
+
+  <div class="ingredients filter-wrapper">
+    <label>{{ "RECIPE_FILTERS.INGREDIENTS" | translate }}</label>
+    <div class="ingredients-checkboxes">
+      @for (ingredient of ingredientsArray; track ingredient; let i = $index) {
+      <label class="checkbox-label">
+        <input
+          type="checkbox"
+          [checked]="isIngredientSelected(ingredient)"
+          (change)="onIngredientChange(ingredient, $any($event.target).checked)"
+        />
+        <span>{{ ingredient }}</span>
+      </label>
+      }
+    </div>
+  </div>
+  }
+</ng-template>

@@ -1,0 +1,23 @@
+<main class="about-us-main">
+  <section>
+    <article class="about-us">
+      <div class="col1">
+        <h1>{{ "ABOUT_US.TITLE" | translate }}</h1>
+        <p class="text" [innerHTML]="'ABOUT_US.TEXT.WELCOME' | translate"></p>
+        <br />
+        <p class="text">{{ "ABOUT_US.TEXT.EXPLORE" | translate }}</p>
+        <br />
+        <p class="text">{{ "ABOUT_US.TEXT.COMMUNITY" | translate }}</p>
+        <br />
+        <p class="text">{{ "ABOUT_US.TEXT.JOIN" | translate }}</p>
+      </div>
+      <div class="col2">
+        <img
+          src="images/about-us/about-us-img.png"
+          alt="{{ 'ABOUT_US.TITLE' | translate }}"
+          class="about-us-img"
+        />
+      </div>
+    </article>
+  </section>
+</main>

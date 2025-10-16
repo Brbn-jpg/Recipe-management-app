@@ -1,0 +1,80 @@
+<nav>
+  <div class="wrapper">
+    <a href="" [routerLink]="['/']">
+      <img src="images/Cibaria.png" alt="Cibaria logo" class="logo" />
+    </a>
+    <ul class="nav-links">
+      @if(!isLoggedIn) {
+      <li class="language">
+        <button (click)="changeLanguage()">
+          <img class="flag" [src]="getFlagImage()" [alt]="getAltText()" />
+        </button>
+      </li>
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/']">{{
+          "NAV.HOME" | translate
+        }}</a>
+      </li>
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/recipes']">{{
+          "NAV.RECIPES" | translate
+        }}</a>
+      </li>
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/about-us']">{{
+          "NAV.ABOUT" | translate
+        }}</a>
+      </li>
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/contact']">{{
+          "NAV.CONTACT" | translate
+        }}</a>
+      </li>
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/login']">{{
+          "NAV.LOGIN" | translate
+        }}</a>
+      </li>
+      } @else {
+      <li class="language">
+        <button (click)="changeLanguage()">
+          <img class="flag" [src]="getFlagImage()" [alt]="getAltText()" />
+        </button>
+      </li>
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/']">{{
+          "NAV.HOME" | translate
+        }}</a>
+      </li>
+
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/add-recipe']">{{
+          "NAV.ADD_RECIPE" | translate
+        }}</a>
+      </li>
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/recipes']">{{
+          "NAV.RECIPES" | translate
+        }}</a>
+      </li>
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/profile']">{{
+          "NAV.PROFILE" | translate
+        }}</a>
+      </li>
+      @if (isAdmin) {
+      <li>
+        <a class="nav-link admin-link" href="" [routerLink]="['/admin']">{{
+          "NAV.ADMIN_PANEL" | translate
+        }}</a>
+      </li>
+      }
+      <li>
+        <a class="nav-link" href="" [routerLink]="['/']" (click)="logOut()">{{
+          "NAV.LOGOUT" | translate
+        }}</a>
+      </li>
+      }
+    </ul>
+  </div>
+</nav>

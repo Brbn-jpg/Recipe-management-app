@@ -1,0 +1,436 @@
+@import "../../shared/styles/button-styles.css";
+
+main {
+  background: rgb(23, 21, 21);
+  background: linear-gradient(
+    180deg,
+    rgba(23, 21, 21, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  color: #fff;
+  overflow: hidden;
+  padding-top: 12.2rem;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 6.4rem 4.8rem;
+  height: auto;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 200;
+  margin-bottom: 3.2rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: 200;
+  margin-bottom: 1.6rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+hr {
+  margin: 2.4rem 0;
+}
+
+label {
+  font-size: 2.4rem;
+  font-weight: 200;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.small-textarea {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  color: #d4ae6c;
+  pointer-events: none;
+}
+
+input {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+  width: 100%;
+  max-width: 30rem;
+  height: 4.8rem;
+  box-sizing: border-box;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dropzone:hover {
+  border-color: #999;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dropzone.dragover {
+  border-color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.1);
+  transform: scale(1.02);
+}
+
+.dropzone.has-preview {
+  padding: 20px;
+  border: 2px solid #4caf50;
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+.image-preview {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.image-preview img {
+  max-width: 300px;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.remove-image-btn:hover {
+  background-color: #cc0000;
+}
+
+.image-status {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.image-status.new-image {
+  background-color: rgba(76, 175, 80, 0.9);
+}
+
+.dropzone input[type="file"] {
+  display: none !important;
+}
+
+.dropzone p {
+  margin: 0;
+  pointer-events: none;
+  color: #666;
+  font-size: 16px;
+}
+
+.dropzone.dragover p {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+select {
+  max-width: 30rem;
+  font-size: 1.6rem;
+  padding: 1.2rem 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+  height: 4.8rem;
+  box-sizing: border-box;
+}
+
+textarea {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #fff;
+  transition: border-color 0.2s ease-in-out;
+  width: 100%;
+  height: 30rem;
+  resize: vertical;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ingredients {
+  display: flex;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.ingredient {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li {
+  margin-top: 1.2rem;
+}
+
+select {
+  padding: 1.2rem 1.2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  letter-spacing: 1.02px;
+  appearance: none; /* Removes default arrow */
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  width: 100%;
+  white-space: nowrap;
+}
+
+select:hover,
+select:focus,
+input:hover,
+input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+select option {
+  background-color: #111;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+select option:hover {
+  background-color: #222;
+}
+
+/* Arrow */
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1.6rem center;
+  background-size: 1.6rem;
+  padding-right: 4rem;
+}
+
+.image {
+  padding: 0;
+}
+
+.ingredients-list {
+  list-style: none;
+}
+
+.step {
+  max-width: 50vw;
+}
+
+.step-number {
+  font-size: 3.2rem;
+  font-weight: 200;
+  margin-top: 2.4rem;
+}
+
+.step-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-text {
+  font-size: 2.4rem;
+  font-weight: 200;
+  max-width: fit-content;
+}
+
+.ingredient-text {
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+
+.remove-step-btn {
+  margin-top: 0 !important;
+  margin-left: 1.6rem;
+}
+
+/* 1200px */
+@media (max-width: 75em) {
+  .ingredient,
+  .quantity,
+  .unit {
+    width: 33%;
+  }
+}
+
+/* < 930px */
+@media (max-width: 58em) {
+  .category,
+  .title,
+  .difficulty,
+  .servings,
+  .prepare-time,
+  .language {
+    width: 50%;
+  }
+}
+
+/* 800px */
+@media (max-width: 50em) {
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  label {
+    margin-bottom: 0.8rem;
+    text-align: left;
+  }
+  form input,
+  form select {
+    min-width: 100%;
+  }
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem !important;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 1.2rem 1.6rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  height: 4.8rem;
+  box-sizing: border-box;
+  min-width: 12rem;
+  white-space: nowrap;
+}
+
+.checkbox-container:hover {
+  border-color: #d4ae6c;
+  background-color: rgba(212, 174, 108, 0.1);
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none !important;
+}
+
+.checkbox-container.checked {
+  border-color: #d4ae6c;
+  background-color: rgba(212, 174, 108, 0.15);
+  color: #d4ae6c;
+  font-weight: 400;
+}
+
+.checkmark {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 0.2rem solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.3rem;
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.checkbox-container.checked .checkmark {
+  border-color: #d4ae6c;
+  background-color: #d4ae6c;
+}
+
+.checkbox-container.checked .checkmark::after {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.optional-label {
+  color: #d4ae6c;
+  font-style: italic;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}

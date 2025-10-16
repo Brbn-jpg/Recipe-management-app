@@ -1,0 +1,255 @@
+/* Global Button Styles */
+.cibaria-btn {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 19rem;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  font-family: inherit;
+}
+
+.cibaria-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cibaria-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.cibaria-btn:hover::before {
+  left: 100%;
+}
+
+/* Primary Button Style */
+.cibaria-btn-primary {
+  background: linear-gradient(135deg, #d4ae6c 0%, #f4e4a1 100%);
+  color: #000;
+  border: 0.2rem solid transparent;
+}
+
+.cibaria-btn-primary:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1.2rem 3.5rem rgba(212, 174, 108, 0.4);
+  background: linear-gradient(135deg, #f4e4a1 0%, #d4ae6c 100%);
+}
+
+/* Secondary Button Style */
+.cibaria-btn-secondary {
+  background: transparent;
+  color: #d4ae6c;
+  border: 0.2rem solid #d4ae6c;
+}
+
+.cibaria-btn-secondary:hover {
+  background: rgba(212, 174, 108, 0.1);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0.8rem 2.5rem rgba(212, 174, 108, 0.2);
+  border-color: #f4e4a1;
+  color: #f4e4a1;
+}
+
+/* Danger/Delete Button Style */
+.cibaria-btn-danger {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: 0.2rem solid transparent;
+}
+
+.cibaria-btn-danger:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1.2rem 3.5rem rgba(231, 76, 60, 0.4);
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+}
+
+/* Success Button Style */
+.cibaria-btn-success {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+  border: 0.2rem solid transparent;
+}
+
+.cibaria-btn-success:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1.2rem 3.5rem rgba(46, 204, 113, 0.4);
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+/* Warning Button Style */
+.cibaria-btn-warning {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+  border: 0.2rem solid transparent;
+}
+
+.cibaria-btn-warning:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1.2rem 3.5rem rgba(243, 156, 18, 0.4);
+  background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+}
+
+/* Dark Button Style */
+.cibaria-btn-dark {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  border: 0.2rem solid transparent;
+}
+
+.cibaria-btn-dark:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1.2rem 3.5rem rgba(44, 62, 80, 0.4);
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+}
+
+/* Very Small Button Variant */
+.cibaria-btn-xs {
+  padding: 0.6rem 1.5rem;
+  font-size: 1.4rem;
+  min-width: 12rem;
+}
+
+/* Small Button Variant */
+.cibaria-btn-sm {
+  padding: 0.8rem 1.8rem;
+  font-size: 1.6rem;
+  min-width: 14rem;
+}
+
+/* Large Button Variant */
+.cibaria-btn-lg {
+  padding: 1.5rem 3rem;
+  font-size: 1.5rem;
+  min-width: 22rem;
+}
+
+/* Full Width Button */
+.cibaria-btn-block {
+  width: 100%;
+  min-width: auto;
+}
+
+/* Outline versions */
+.cibaria-btn-outline-primary {
+  background: transparent;
+  color: #d4ae6c;
+  border: 0.2rem solid #d4ae6c;
+}
+
+.cibaria-btn-outline-primary:hover {
+  background: #d4ae6c;
+  color: #000;
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0.8rem 2.5rem rgba(212, 174, 108, 0.3);
+}
+
+.cibaria-btn-outline-danger {
+  background: transparent;
+  color: #e74c3c;
+  border: 0.2rem solid #e74c3c;
+}
+
+.cibaria-btn-outline-danger:hover {
+  background: #e74c3c;
+  color: white;
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0.8rem 2.5rem rgba(231, 76, 60, 0.3);
+}
+
+/* Button Group */
+.cibaria-btn-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cibaria-btn-group .cibaria-btn {
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 76.8rem) {
+  .cibaria-btn {
+    padding: 1.4rem 2.4rem;
+    font-size: 1.5rem;
+    min-width: 18rem;
+  }
+
+  .cibaria-btn-xs {
+    padding: 0.7rem 1.4rem;
+    font-size: 1.3rem;
+    min-width: 10rem;
+  }
+
+  .cibaria-btn-sm {
+    padding: 1.2rem 2rem;
+    font-size: 1.4rem;
+    min-width: 16rem;
+  }
+
+  .cibaria-btn-lg {
+    padding: 1.6rem 3rem;
+    font-size: 1.7rem;
+    min-width: 22rem;
+  }
+
+  .cibaria-btn-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cibaria-btn-group .cibaria-btn {
+    width: 100%;
+    max-width: 28rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .cibaria-btn {
+    padding: 1.3rem 2.2rem;
+    font-size: 1.4rem;
+    min-width: 16rem;
+  }
+
+  .cibaria-btn-xs {
+    padding: 0.9rem 1.6rem;
+    font-size: 1.2rem;
+    min-width: 8rem;
+  }
+
+  .cibaria-btn-sm {
+    padding: 1.1rem 1.8rem;
+    font-size: 1.3rem;
+    min-width: 14rem;
+  }
+
+  .cibaria-btn-lg {
+    padding: 1.5rem 2.6rem;
+    font-size: 1.6rem;
+    min-width: 18rem;
+  }
+}

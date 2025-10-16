@@ -1,0 +1,8 @@
+.vscode
+docker/.env
+.DS_Store
+backend/.env
+
+frontend/node_modules
+frontend/.vscode
+.env

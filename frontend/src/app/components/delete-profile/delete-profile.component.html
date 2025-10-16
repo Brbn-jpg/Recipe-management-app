@@ -1,0 +1,33 @@
+@if(showDeleteUserConfirmation){
+<div class="modal-overlay" (click)="cancelDeleteUser()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>{{ "ADMIN.DELETE_USER_CONFIRMATION" | translate }}</h3>
+      <button type="button" class="close-button" (click)="cancelDeleteUser()">
+        ×
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <p>{{ "ADMIN.DELETE_USER_WARNING" | translate }}</p>
+    </div>
+
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="cibaria-btn cibaria-btn-secondary"
+        (click)="cancelDeleteUser()"
+      >
+        {{ "ADMIN.NO" | translate }}
+      </button>
+      <button
+        type="button"
+        class="cibaria-btn cibaria-btn-danger"
+        (click)="confirmDeleteUser()"
+      >
+        {{ "ADMIN.YES_DELETE" | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+}

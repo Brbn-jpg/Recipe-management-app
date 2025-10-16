@@ -1,0 +1,261 @@
+<main>
+  <section>
+    <app-toast-notification></app-toast-notification>
+    <h1>{{ "EDIT_RECIPE.TITLE" | translate }}</h1>
+    <form [formGroup]="recipeForm" (submit)="updateRecipe()">
+      <div class="input-group">
+        <label for="title">{{ "ADD_RECIPE.RECIPE_TITLE" | translate }}</label>
+        <input
+          formControlName="title"
+          type="text"
+          name="title"
+          class="title"
+          required
+          placeholder="{{ 'ADD_RECIPE.RECIPE_TITLE_PLACEHOLDER' | translate }}"
+        />
+      </div>
+      <div class="input-group">
+        <label for="category" class="category">{{
+          "ADD_RECIPE.CATEGORY" | translate
+        }}</label>
+        <select
+          formControlName="category"
+          name="category"
+          class="category"
+          required
+        >
+          <option value="">
+            {{ "RECIPE_FILTERS.CHOOSE_CATEGORY" | translate }}
+          </option>
+          @for (category of categoriesArray; track category.key) {
+          <option [value]="category.key">
+            {{ "RECIPE_FILTERS.CATEGORIES." + category.key | translate }}
+          </option>
+          }
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="difficulty" class="difficulty">{{
+          "ADD_RECIPE.DIFFICULTY" | translate
+        }}</label>
+        <select
+          formControlName="difficulty"
+          type="number"
+          name="difficulty"
+          class="difficulty"
+          required
+        >
+          <option disabled value="null">
+            {{ "ADD_RECIPE.CHOOSE_DIFFICULTY" | translate }}
+          </option>
+          <option value="1">{{ "ADD_RECIPE.EASY" | translate }}</option>
+          <option value="2">{{ "ADD_RECIPE.MEDIUM" | translate }}</option>
+          <option value="3">{{ "ADD_RECIPE.HARD" | translate }}</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="servings" class="servings">{{
+          "ADD_RECIPE.SERVINGS" | translate
+        }}</label>
+        <input
+          formControlName="servings"
+          type="number"
+          class="servings"
+          name="servings"
+          required
+          placeholder="{{ 'ADD_RECIPE.SERVINGS_PLACEHOLDER' | translate }}"
+          min="1"
+        />
+      </div>
+      <div class="input-group">
+        <label for="prepare-time" class="prepare-time">{{
+          "ADD_RECIPE.PREPARE_TIME" | translate
+        }}</label>
+        <input
+          type="number"
+          class="prepare-time"
+          placeholder="{{ 'ADD_RECIPE.PREPARE_TIME_PLACEHOLDER' | translate }}"
+          formControlName="prepareTime"
+          min="1"
+        />
+      </div>
+      <div class="input-group">
+        <label for="public" class="public">{{
+          "ADD_RECIPE.VISIBILITY" | translate
+        }}</label>
+        <select
+          name="public"
+          class="public"
+          required
+          formControlName="isPublic"
+        >
+          <option value="false">{{ "ADD_RECIPE.PRIVATE" | translate }}</option>
+          <option value="true">{{ "ADD_RECIPE.PUBLIC" | translate }}</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="language" class="language">{{
+          "ADD_RECIPE.LANGUAGE" | translate
+        }}</label>
+        <select
+          name="language"
+          class="language"
+          required
+          formControlName="language"
+        >
+          <option value="english">
+            {{ "ADD_RECIPE.ENGLISH" | translate }}
+          </option>
+          <option value="polish">{{ "ADD_RECIPE.POLISH" | translate }}</option>
+        </select>
+      </div>
+      <hr />
+      <h2>{{ "ADD_RECIPE.INGREDIENTS" | translate }}</h2>
+      <div class="input-group ingredients">
+        <input
+          formControlName="ingredients"
+          type="text"
+          name="ingredientName"
+          class="ingredient"
+          required
+          placeholder="{{ 'ADD_RECIPE.INGREDIENT_PLACEHOLDER' | translate }}"
+        />
+        <input
+          formControlName="quantity"
+          type="number"
+          name="quantity"
+          class="quantity"
+          required
+          placeholder="{{ 'ADD_RECIPE.QUANTITY_PLACEHOLDER' | translate }}"
+          min="0.1"
+        />
+        <select formControlName="unit" name="unit" class="unit" required>
+          <option disabled value="">
+            {{ "ADD_RECIPE.CHOOSE_UNIT" | translate }}
+          </option>
+          <option value="tsp">{{ "ADD_RECIPE.UNITS.TSP" | translate }}</option>
+          <option value="tbsp">
+            {{ "ADD_RECIPE.UNITS.TBSP" | translate }}
+          </option>
+          <option value="pcs">{{ "ADD_RECIPE.UNITS.PCS" | translate }}</option>
+          <option value="g">{{ "ADD_RECIPE.UNITS.G" | translate }}</option>
+          <option value="kg">{{ "ADD_RECIPE.UNITS.KG" | translate }}</option>
+          <option value="ml">{{ "ADD_RECIPE.UNITS.ML" | translate }}</option>
+          <option value="L">{{ "ADD_RECIPE.UNITS.L" | translate }}</option>
+        </select>
+        <div class="checkbox-container" [class.checked]="recipeForm.get('isOptional')?.value" (click)="toggleOptional()">
+          <span class="checkmark"></span>
+          {{ "ADD_RECIPE.OPTIONAL" | translate }}
+        </div>
+      </div>
+      <button type="button" class="cibaria-btn cibaria-btn-secondary" (click)="addIngredient()">
+        {{ "ADD_RECIPE.ADD_INGREDIENT" | translate }}
+      </button>
+
+      <ul class="ingredients-list">
+        @for (ingredient of ingredients; track $index) {
+        <li class="ingredient">
+          <p class="ingredient-text">
+            {{ ingredient.quantity }} {{ ingredient.unit }}
+            {{ ingredient.name }}
+            @if (ingredient.isOptional) {
+              <span class="optional-label">({{ "ADD_RECIPE.OPTIONAL" | translate }})</span>
+            }
+          </p>
+
+          <button type="button" class="cibaria-btn cibaria-btn-danger cibaria-btn-sm" (click)="removeIngredient($index)">
+            {{ "ADD_RECIPE.REMOVE" | translate }}
+          </button>
+        </li>
+        }
+      </ul>
+      <hr />
+      <h2>{{ "ADD_RECIPE.STEPS" | translate }}</h2>
+      <div class="input-group">
+        <textarea
+          formControlName="steps"
+          name="step"
+          class="step"
+          #stepInput
+          required
+          placeholder="{{ 'ADD_RECIPE.STEP_PLACEHOLDER' | translate }}"
+          maxlength="256"
+        ></textarea>
+        <small class="small-textarea">{{ stepInput.value?.length || 0 }}/256</small>
+      </div>
+      <button type="button" class="cibaria-btn cibaria-btn-secondary" (click)="addStep()">
+        {{ "ADD_RECIPE.ADD_STEP" | translate }}
+      </button>
+      @for (step of steps; track $index) {
+      <div class="step">
+        <h2 class="step-number">
+          {{ "ADD_RECIPE.STEP_NUMBER" | translate : { number: $index + 1 } }}
+        </h2>
+        <div class="step-wrapper">
+          <p class="step-text">{{ step.content }}</p>
+          <button
+            type="button"
+            (click)="removeStep($index)"
+            class="cibaria-btn cibaria-btn-danger cibaria-btn-sm remove-step-btn"
+          >
+            {{ "ADD_RECIPE.REMOVE" | translate }}
+          </button>
+        </div>
+      </div>
+      }
+      <hr />
+      <h2>{{ "ADD_RECIPE.ADD_IMAGE" | translate }}</h2>
+      <div
+        class="dropzone"
+        [class.has-preview]="imagePreview"
+        (click)="triggerFileInput()"
+      >
+        <input
+          #fileInput
+          formControlName="images"
+          type="file"
+          name="image"
+          class="image"
+          required
+          accept="image/*"
+          (change)="onFileSelected($event)"
+          style="display: none"
+        />
+        @if (imagePreview) {
+        <div class="image-preview">
+          <img [src]="imagePreview" alt="Recipe preview" />
+          <button
+            type="button"
+            class="remove-image-btn"
+            (click)="resetFile($event)"
+            [title]="
+              hasExistingImage && !recipeForm.get('images')?.value
+                ? 'Remove current image'
+                : 'Remove uploaded image'
+            "
+          >
+            ✕
+          </button>
+          @if (hasExistingImage && !recipeForm.get('images')?.value) {
+          <div class="image-status">
+            {{ "EDIT_RECIPE.CURRENT_IMAGE" | translate }}
+          </div>
+          } @if (recipeForm.get('images')?.value) {
+          <div class="image-status new-image">
+            {{ "EDIT_RECIPE.NEW_IMAGE_SELECTED" | translate }}
+          </div>
+          }
+        </div>
+        } @else {
+        <p>{{ "ADD_RECIPE.CLICK_OR_DRAG" | translate }}</p>
+        }
+      </div>
+      <hr />
+      <button type="submit" class="cibaria-btn cibaria-btn-primary cibaria-btn-lg" [disabled]="isUpdating">
+        @if (!isUpdating) {
+        {{ "EDIT_RECIPE.UPDATE_RECIPE_BUTTON" | translate }}
+        } @else { Updating... }
+      </button>
+    </form>
+  </section>
+</main>

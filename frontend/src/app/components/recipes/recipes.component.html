@@ -1,0 +1,37 @@
+<main>
+  <article>
+    @if (recipesArray.length >= 0) {
+    <app-recipe-filters
+      [isMobileFiltering]="isFiltering"
+      (filtersChanged)="onFiltersChanged()"
+    ></app-recipe-filters>
+    <hr />
+    }
+    <div class="recipes grid-4-cols">
+      @for (recipe of recipesArray; track $index) {
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+      } @if (recipesArray.length === 0) {
+      <p class="no-recipes">No recipes found</p>
+      }
+    </div>
+    @if (recipesArray.length > 0) {
+    <div class="pagination">
+      <button
+        class="cibaria-btn cibaria-btn-xs cibaria-btn-secondary"
+        [disabled]="currentPage === 1"
+        (click)="onPageChange(currentPage - 1)"
+      >
+        Previous
+      </button>
+      <span class="pages">page {{ currentPage }} of {{ totalPages }}</span>
+      <button
+        class="cibaria-btn cibaria-btn-xs cibaria-btn-secondary"
+        [disabled]="currentPage === totalPages"
+        (click)="onPageChange(currentPage + 1)"
+      >
+        Next
+      </button>
+    </div>
+    }
+  </article>
+</main>

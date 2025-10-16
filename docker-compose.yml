@@ -1,0 +1,45 @@
+services:
+  cibaria_database:
+    container_name: cibaria_database
+    image: postgres:15-alpine
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  cibaria_backend:
+    container_name: cibaria_backend
+    build: ./backend
+    ports:
+      - 8080:8080
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_URL=${DB_URL}
+      - CLOUD_NAME=${CLOUD_NAME}
+      - API_SECRET_KEY=${API_SECRET_KEY}
+      - API_KEY=${API_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+    env_file:
+      - .env
+    depends_on:
+      - cibaria_database
+
+  cibaria_frontend:
+    container_name: cibaria_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 4200:80
+    depends_on:
+      - cibaria_backend
+
+volumes:
+  pgdata: {}

@@ -1,0 +1,51 @@
+<div class="toast-container">
+  @for (notification of notifications; track notification.id) {
+  <div class="toast" [ngClass]="'toast-' + notification.type">
+    <div class="toast-content">
+      <div class="toast-icon">
+        @switch (notification.type) { @case ('success') {
+        <img
+          src="images/icons/tick-icon.svg"
+          alt="Success"
+          class="toast-icon-img"
+        />
+        } @case ('error') {
+        <img
+          src="images/icons/error-icon.svg"
+          alt="Error"
+          class="toast-icon-img"
+        />
+        } @case ('warning') {
+        <img
+          src="images/icons/warning-icon.svg"
+          alt="Warning"
+          class="toast-icon-img"
+        />
+        } @case ('info') {
+        <img
+          src="images/icons/info-icon.svg"
+          alt="Info"
+          class="toast-icon-img"
+        />
+        } }
+      </div>
+      <div class="toast-message">{{ notification.message }}</div>
+      <button
+        class="toast-close"
+        (click)="removeNotifaction(notification.id)"
+        aria-label="Close notification"
+      >
+        <img
+          src="images/icons/cancel-icon.svg"
+          alt="Cancel"
+          class="toast-icon-img"
+        />
+      </button>
+    </div>
+    <div
+      class="toast-progress"
+      [style.animation-duration]="notification.duration + 'ms'"
+    ></div>
+  </div>
+  }
+</div>

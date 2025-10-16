@@ -1,0 +1,67 @@
+<footer class="footer-section">
+  <div class="footer">
+    <div class="footer-content">
+      <div class="cibaria">
+        <h4 class="cibaria-header">Cibaria</h4>
+        <p class="cibaria-p">
+          {{ "FOOTER.TITLE" | translate }}
+        </p>
+      </div>
+      <ul class="major-links">
+        <li class="major-link">
+          <ul>
+            <li class="link">{{ "FOOTER.EXTRALINKS.TITLE" | translate }}</li>
+            <li class="link">
+              <a href="" [routerLink]="['']">{{
+                "FOOTER.EXTRALINKS.LINK1" | translate
+              }}</a>
+            </li>
+            <li class="link">
+              <a href="" [routerLink]="['/about-us']">{{
+                "FOOTER.EXTRALINKS.LINK2" | translate
+              }}</a>
+            </li>
+            <li class="link">
+              <a href="" [routerLink]="['/recipes']">{{
+                "FOOTER.EXTRALINKS.LINK3" | translate
+              }}</a>
+            </li>
+            <li class="link">
+              <a href="" [routerLink]="['/contact']">{{
+                "FOOTER.EXTRALINKS.LINK4" | translate
+              }}</a>
+            </li>
+          </ul>
+        </li>
+        <li class="major-link">
+          <ul>
+            <li class="link">Socialmedia</li>
+            <li class="link"><a href="">Facebook</a></li>
+            <li class="link"><a href="">Instagram</a></li>
+            <li class="link"><a href="">TikTok</a></li>
+            <li class="link"><a href="">YouTube</a></li>
+            <li class="link"><a href="">X</a></li>
+          </ul>
+        </li>
+        <li class="major-link">
+          <ul>
+            <li class="link">{{ "FOOTER.LEGAL.TITLE" | translate }}</li>
+            <li class="link">
+              <a href="" [routerLink]="['/privacy-policy']">{{
+                "FOOTER.LEGAL.PRIVACY" | translate
+              }}</a>
+            </li>
+            <li class="link">
+              <a href="" [routerLink]="['/terms-of-service']">
+                {{ "FOOTER.LEGAL.TERMS" | translate }}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h5>{{ "FOOTER.COPY" | translate }}</h5>
+    </div>
+  </div>
+</footer>

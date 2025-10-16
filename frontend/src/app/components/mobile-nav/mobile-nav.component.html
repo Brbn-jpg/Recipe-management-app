@@ -1,0 +1,139 @@
+<nav>
+  <div class="wrapper">
+    <a href="" [routerLink]="['/']" (click)="closeMenu()">
+      <img src="images/Cibaria.png" alt="Cibaria logo" class="logo" />
+    </a>
+    @if(!Open) {
+    <button class="mobile-menu" (click)="openMenu()">
+      <img
+        src="images/mobile-menu/menu-open.svg"
+        alt="Menu open"
+        class="menu-icon open"
+      />
+    </button>
+    } @else {
+    <button class="mobile-menu" (click)="closeMenu()">
+      <img
+        src="images/mobile-menu/menu-close.svg"
+        alt="Menu close"
+        class="menu-icon close"
+      />
+    </button>
+    }
+    <div class="nav-menu">
+      <ul class="nav-links">
+        @if(!isLoggedIn) {
+        <li class="language">
+          <button (click)="changeLanguage()" class="language-button">
+            <img class="flag" [src]="getFlagImage()" [alt]="getAltText()" />
+          </button>
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/']"
+            (click)="closeMenu()"
+            >{{ "NAV.HOME" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/recipes']"
+            (click)="closeMenu()"
+            >{{ "NAV.RECIPES" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/about-us']"
+            (click)="closeMenu()"
+            >{{ "NAV.ABOUT" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/contact']"
+            (click)="closeMenu()"
+            >{{ "NAV.CONTACT" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/login']"
+            (click)="closeMenu()"
+            >{{ "NAV.LOGIN" | translate }}</a
+          >
+        </li>
+        } @else {
+        <li class="language">
+          <button (click)="changeLanguage()" class="language-button">
+            <img class="flag" [src]="getFlagImage()" [alt]="getAltText()" />
+          </button>
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/']"
+            (click)="closeMenu()"
+            >{{ "NAV.HOME" | translate }}</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/add-recipe']"
+            (click)="closeMenu()"
+            >{{ "NAV.ADD_RECIPE" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/recipes']"
+            (click)="closeMenu()"
+            >{{ "NAV.RECIPES" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href=""
+            [routerLink]="['/profile']"
+            (click)="closeMenu()"
+            >{{ "NAV.PROFILE" | translate }}</a
+          >
+        </li>
+        @if (isAdmin) {
+        <li>
+          <a
+            class="nav-link admin-link"
+            href=""
+            [routerLink]="['/admin']"
+            (click)="closeMenu()"
+            >{{ "NAV.ADMIN_PANEL" | translate }}</a
+          >
+        </li>
+        }
+        <li>
+          <a class="nav-link" href="" [routerLink]="['/']" (click)="logOut()">{{
+            "NAV.LOGOUT" | translate
+          }}</a>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

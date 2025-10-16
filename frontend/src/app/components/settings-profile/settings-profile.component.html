@@ -1,0 +1,63 @@
+<div class="edit-section">
+  <div class="edit-field">
+    <label class="edit-label">{{ "SETTINGS_PROFILE.EMAIL" | translate }}</label>
+    <input
+      id="email-id"
+      placeholder="{{ 'SETTINGS_PROFILE.EMAIL_PLACEHOLDER' | translate }}"
+      #emailInput
+      [(ngModel)]="email"
+      type="email"
+      class="edit-input"
+    />
+    <small class="small-input">{{ emailInput.value?.length || 0 }}/64</small>
+    <input
+      id="password-id"
+      placeholder="{{ 'SETTINGS_PROFILE.PASSWORD_PLACEHOLDER' | translate }}"
+      type="password"
+      class="edit-input"
+      placeholer="Current password to confirm"
+    />
+  </div>
+  <div class="edit-field">
+    <label class="edit-label">{{
+      "SETTINGS_PROFILE.PASSWORD" | translate
+    }}</label>
+    <input
+      id="current-password-id"
+      type="password"
+      placeholder="{{
+        'SETTINGS_PROFILE.CURRENT_PASSWORD_PLACEHOLDER' | translate
+      }}"
+      class="edit-input"
+    />
+    <input
+      id="new-password-id"
+      placeholder="{{
+        'SETTINGS_PROFILE.NEW_PASSWORD_PLACEHOLDER' | translate
+      }}"
+      #newPasswordRef
+      [(ngModel)]="newPasswordInput"
+      type="password"
+      class="edit-input"
+      autocomplete="new-password"
+    />
+    <small class="small-textarea">{{ newPasswordInput.length || 0 }}/64</small>
+    <div class="buttons">
+      <button
+        class="cibaria-btn cibaria-btn-primary"
+        (click)="save()"
+        [disabled]="isUpdatingEmail || isUpdatingPassword"
+      >
+        @if (!isUpdatingEmail && !isUpdatingPassword) {
+        {{ "SETTINGS_PROFILE.SAVE" | translate }}
+        } @else { Saving... }
+      </button>
+      <button
+        class="cibaria-btn cibaria-btn-secondary"
+        (click)="cancelSettings()"
+      >
+        {{ "SETTINGS_PROFILE.CANCEL" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

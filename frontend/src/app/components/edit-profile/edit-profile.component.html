@@ -1,0 +1,46 @@
+<div class="edit-section">
+  <div class="edit-field">
+    <label class="edit-label">{{ "EDIT_PROFILE.USERNAME" | translate }}</label>
+    <input
+      id="username-id"
+      placeholder="{{ 'EDIT_PROFILE.USERNAME_PLACEHOLDER' | translate }}"
+      #usernameInput
+      [(ngModel)]="username"
+      maxlength="16"
+      class="edit-input"
+    />
+    <small class="small-input">{{ usernameInput.value?.length || 0 }}/16</small>
+  </div>
+
+  <div class="edit-field">
+    <label class="edit-label">{{
+      "EDIT_PROFILE.DESCRIPTION" | translate
+    }}</label>
+    <textarea
+      id="description-id"
+      placeholder="{{ 'EDIT_PROFILE.DESCRIPTION_PLACEHOLDER' | translate }}"
+      #descriptionInput
+      [(ngModel)]="description"
+      maxlength="255"
+      class="edit-input"
+    >
+    </textarea>
+    <small class="small-textarea"
+      >{{ descriptionInput.value?.length || 0 }}/255</small
+    >
+    <div class="buttons">
+      <button
+        class="cibaria-btn cibaria-btn-primary"
+        (click)="save()"
+        [disabled]="isUpdatingUsername || isUpdatingDescription"
+      >
+        @if (!isUpdatingUsername && !isUpdatingDescription) {
+        {{ "EDIT_PROFILE.SAVE" | translate }}
+        } @else { Saving... }
+      </button>
+      <button class="cibaria-btn cibaria-btn-secondary" (click)="cancelEdit()">
+        {{ "EDIT_PROFILE.CANCEL" | translate }}
+      </button>
+    </div>
+  </div>
+</div>
