@@ -7,10 +7,10 @@ export const options = {
   // iterations: 5,
   // duration: "2m",
   stages: [
-    { duration: "30s", target: 2 },
-    { duration: "1m", target: 15 },
-    { duration: "2m", target: 10 },
-    { duration: "30s", target: 0 },
+    { duration: "30s", target: 20 },
+    { duration: "1m", target: 50 },
+    { duration: "2m", target: 40 },
+    { duration: "30s", target: 90 },
   ],
   noConnectionReuse: true,
   discardResponseBodies: false,
@@ -27,9 +27,9 @@ function generateTestUser() {
   };
 }
 
+// no idea how this works (its caused by backend requiring MULTIPART_FORM_DATA_VALUE instead of json)
+// well just have to deal with it if recipes has to have an image
 function createMultipartRequest(data, token) {
-  // no idea how this works (its caused by backend requiring MULTIPART_FORM_DATA_VALUE instead of json)
-  // well just have to deal with it if recipes has to have an image
   const boundary =
     "----WebKitFormBoundary" + Math.random().toString(36).substr(2);
 

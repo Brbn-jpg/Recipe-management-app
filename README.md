@@ -157,6 +157,8 @@ Frontend will start on `http://localhost:4200`
 | DELETE | `/recipes/{id}`                   | Delete recipe                  |
 | POST   | `/recipes/{id}`                   | Rate a recipe                  |
 | GET    | `/recipes/{id}/rating`            | Get user rating for recipe     |
+| POST   | `/recipes/{id}`                   | Rate a recipe                  |
+| GET    | `/recipes/{id}/rating`            | Get user rating                |
 | GET    | `/recipes/{id}/isOwner`           | Check if user owns recipe      |
 | GET    | `/recipes/favourites/isFavourite` | Check if recipe is favourite   |
 | POST   | `/recipes/favourites/add`         | Add recipe to favourites       |
@@ -211,13 +213,6 @@ Frontend will start on `http://localhost:4200`
 | POST   | `/image/addPhoto`    | Upload image |
 | POST   | `/image/deletePhoto` | Delete image |
 
-### Ratings
-
-| Method | Endpoint               | Description     |
-| ------ | ---------------------- | --------------- |
-| POST   | `/recipes/{id}`        | Rate a recipe   |
-| GET    | `/recipes/{id}/rating` | Get user rating |
-
 ---
 
 ## 🛠️ Development
@@ -240,6 +235,18 @@ ng generate component component-name
 ```bash
 # Access database container
 docker exec -it cibaria_database -h <REMOTE_HOST> -p <REMOTE_PORT> -U <DB_USER> <DB_NAME>
+```
+
+---
+
+## 🚀 Performance Testing
+
+### Running Performance Tests
+
+To run the performance tests, use `k6`. If you don't have k6 installed, follow the instructions on the [k6 website](https://k6.io/docs/getting-started/installation/).
+
+```bash
+k6 run performance-tests/basic-test.js
 ```
 
 ---

@@ -71,21 +71,21 @@ public class UserController {
   }
   
 
-  @PutMapping("/{userId}/profile-picture")
+  @PutMapping("/{id}/profile-picture")
   public ResponseEntity<String> updateProfilePicture(
-          @PathVariable int userId,
+          @PathVariable int id,
           @RequestParam("file") MultipartFile file, @RequestHeader("Authorization") String token) throws IOException {
         
-      String imageUrl = userService.updateProfilePicture(userId, file, token);
+      String imageUrl = userService.updateProfilePicture(id, file, token);
       return ResponseEntity.ok(imageUrl);
   }
 
-  @PutMapping("/{userId}/background-picture")
+  @PutMapping("/{id}/background-picture")
   public ResponseEntity<String> updateBackgroundPicture(
-          @PathVariable int userId,
+          @PathVariable int id,
           @RequestParam("file") MultipartFile file, @RequestHeader("Authorization") String token) throws IOException {
         
-      String imageUrl = userService.updateBackgroundPicture(userId, file, token);
+      String imageUrl = userService.updateBackgroundPicture(id, file, token);
       return ResponseEntity.ok(imageUrl);
   }
 

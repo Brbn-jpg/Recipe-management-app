@@ -70,7 +70,6 @@ public class RecipeServiceImpl implements RecipeService {
 
   @Override
   public Recipe saveRecipeWithoutPhoto(RecipeAddDto recipe, String token) throws IOException {
-
     Recipe newRecipe = createRecipe(recipe, token);
     return recipeRepository.save(newRecipe);
   }
@@ -176,7 +175,6 @@ public class RecipeServiceImpl implements RecipeService {
           try {
             cloudinaryService.removePhoto(oldImage.getPublicId());
           } catch (Exception e) {
-            // Log error but don't stop update process
             System.err.println("Failed to delete old image from Cloudinary: " + oldImage.getPublicId() + ", Error: " + e.getMessage());
           }
         });
@@ -248,7 +246,6 @@ public class RecipeServiceImpl implements RecipeService {
           try {
             cloudinaryService.removePhoto(image.getPublicId());
           } catch (Exception e) {
-            // Log error but don't stop update process
             System.err.println("Failed to delete image from Cloudinary: " + image.getPublicId() + ", Error: " + e.getMessage());
           }
         });
@@ -363,7 +360,6 @@ public class RecipeServiceImpl implements RecipeService {
         try {
           cloudinaryService.removePhoto(image.getPublicId());
         } catch (Exception e) {
-          // Log error but don't stop deletion process
           System.err.println("Failed to delete image from Cloudinary: " + image.getPublicId() + ", Error: " + e.getMessage());
         }
       });
